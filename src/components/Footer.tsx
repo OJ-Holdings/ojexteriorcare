@@ -44,7 +44,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-primary" />
-                <a href="sms:+15551234567" className="hover:text-foreground transition-colors">Text Us</a>
+                <a href="sms:+12623517796" className="hover:text-foreground transition-colors">Text Us</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
