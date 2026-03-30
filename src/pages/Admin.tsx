@@ -95,7 +95,7 @@ const Admin = () => {
                 required
                 className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
-              {loginError && <p className="text-red-500 text-sm">{loginError}</p>}
+              {loginError && <p className="text-destructive text-sm">{loginError}</p>}
               <button
                 type="submit"
                 disabled={loginLoading}
