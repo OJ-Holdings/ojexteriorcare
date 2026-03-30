@@ -1,13 +1,71 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    service_needed: "",
+    description: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const id = crypto.randomUUID();
+      const { error } = await supabase.from("quote_requests").insert({
+        id,
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email || null,
+        address: formData.address || null,
+        service_needed: formData.service_needed || null,
+        description: formData.description || null,
+      });
+
+      if (error) throw error;
+
+      // Try to send notification email (non-blocking)
+      try {
+        await supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "quote-request-notification",
+            recipientEmail: "ojexteriorcare@gmail.com",
+            idempotencyKey: `quote-notify-${id}`,
+            templateData: {
+              name: formData.name,
+              phone: formData.phone,
+              email: formData.email || "Not provided",
+              address: formData.address || "Not provided",
+              service: formData.service_needed || "Not specified",
+              description: formData.description || "No details provided",
+            },
+          },
+        });
+      } catch {
+        // Email notification is non-critical
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting quote request:", error);
+      toast.error("Something went wrong. Please call us directly at (262) 351-7796.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -52,7 +110,10 @@ const ContactForm = () => {
                   <label className="text-sm font-medium mb-1.5 block">Name *</label>
                   <input
                     type="text"
+                    name="name"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Your full name"
                     className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow"
                   />
@@ -61,7 +122,10 @@ const ContactForm = () => {
                   <label className="text-sm font-medium mb-1.5 block">Phone *</label>
                   <input
                     type="tel"
+                    name="phone"
                     required
+                    value={formData.phone}
+                    onChange={handleChange}
                     placeholder="(555) 123-4567"
                     className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow"
                   />
@@ -73,6 +137,9 @@ const ContactForm = () => {
                   <label className="text-sm font-medium mb-1.5 block">Email</label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="you@email.com"
                     className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow"
                   />
@@ -81,6 +148,9 @@ const ContactForm = () => {
                   <label className="text-sm font-medium mb-1.5 block">Address</label>
                   <input
                     type="text"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
                     placeholder="123 Main St"
                     className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow"
                   />
@@ -89,7 +159,12 @@ const ContactForm = () => {
 
               <div>
                 <label className="text-sm font-medium mb-1.5 block">Service Needed</label>
-                <select className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow">
+                <select
+                  name="service_needed"
+                  value={formData.service_needed}
+                  onChange={handleChange}
+                  className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow"
+                >
                   <option value="">Select a service</option>
                   <option>Driveway Cleaning</option>
                   <option>Patio Cleaning</option>
@@ -105,7 +180,10 @@ const ContactForm = () => {
               <div>
                 <label className="text-sm font-medium mb-1.5 block">Tell Us About Your Project</label>
                 <textarea
+                  name="description"
                   rows={4}
+                  value={formData.description}
+                  onChange={handleChange}
                   placeholder="Describe the area to be cleaned, any specific stains, and preferred timing..."
                   className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow resize-none"
                 />
@@ -113,10 +191,15 @@ const ContactForm = () => {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-orange text-primary-foreground py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-glow"
+                disabled={loading}
+                className="w-full bg-gradient-orange text-primary-foreground py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-glow disabled:opacity-60"
               >
-                <Send className="w-5 h-5" />
-                Submit Quote Request
+                {loading ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <Send className="w-5 h-5" />
+                )}
+                {loading ? "Submitting..." : "Submit Quote Request"}
               </button>
             </motion.form>
           )}
