@@ -45,7 +45,7 @@ const Hero = () => {
               <ArrowRight className="w-5 h-5" />
             </a>
             <a
-              href="tel:+15551234567"
+              href="tel:+12623517796"
               className="border border-border bg-secondary text-foreground px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:bg-muted transition-colors"
             >
               <Phone className="w-5 h-5" />
