@@ -47,7 +47,7 @@ const Header = () => {
 
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="tel:+15551234567"
+            href="tel:+12623517796"
             className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             <Phone className="w-4 h-4" />

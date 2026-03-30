@@ -52,7 +52,7 @@ const Hero = () => {
               Call Now
             </a>
             <a
-              href="sms:+15551234567"
+              href="sms:+12623517796"
               className="border border-border bg-secondary text-foreground px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:bg-muted transition-colors"
             >
               <MessageCircle className="w-5 h-5" />
