@@ -37,6 +37,16 @@ const services = [
     description: "Comprehensive cleaning for all exterior hard surfaces. Walls, steps, retaining walls, and more.",
     icon: "✨",
   },
+  {
+    title: "Gutter Cleaning",
+    description: "Keep your gutters clear of debris and buildup. Prevent water damage and protect your home's foundation.",
+    icon: "🏠",
+  },
+  {
+    title: "Window Cleaning",
+    description: "Crystal-clear windows inside and out. Professional streak-free cleaning that lets the light in.",
+    icon: "🪟",
+  },
 ];
 
 const Services = () => {

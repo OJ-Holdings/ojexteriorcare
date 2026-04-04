@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
 import beforeAfter1 from "@/assets/before-after-1.jpg";
 import beforeAfter2 from "@/assets/before-after-2.jpg";
-import beforeAfter3 from "@/assets/before-after-3.jpg";
 
 const images = [
-  { src: beforeAfter1, label: "Driveway Transformation" },
-  { src: beforeAfter2, label: "Patio Restoration" },
-  { src: beforeAfter3, label: "Sidewalk & Oil Stain Removal" },
+  { src: beforeAfter1, label: "Patio Restoration" },
+  { src: beforeAfter2, label: "Driveway Oil Stain Removal" },
 ];
 
 const BeforeAfter = () => {
@@ -28,7 +26,7 @@ const BeforeAfter = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {images.map((img, i) => (
             <motion.div
               key={img.label}
@@ -48,10 +46,6 @@ const BeforeAfter = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs font-bold uppercase tracking-wider bg-primary/20 text-primary px-3 py-1 rounded-full">Before</span>
-                  <span className="text-xs font-bold uppercase tracking-wider bg-accent/20 text-accent px-3 py-1 rounded-full">After</span>
-                </div>
                 <h3 className="font-heading font-bold text-lg">{img.label}</h3>
               </div>
             </motion.div>
