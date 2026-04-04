@@ -20,18 +20,20 @@ const Footer = () => {
               <li>Patio Cleaning</li>
               <li>Sidewalk Cleaning</li>
               <li>Deck Cleaning</li>
-              <li>Oil Stain Treatment</li>
-              <li>Rust Stain Treatment</li>
+              <li>Gutter Cleaning</li>
+              <li>Window Cleaning</li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-heading font-bold mb-4">Service Areas</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Your City</li>
-              <li>Nearby Town</li>
-              <li>Local County</li>
-              <li>Surrounding Areas</li>
+              <li>Kenosha, WI</li>
+              <li>Racine, WI</li>
+              <li>Zion, IL</li>
+              <li>Pleasant Prairie</li>
+              <li>Somers</li>
+              <li>Bristol</li>
             </ul>
           </div>
 
@@ -54,7 +56,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-10 pt-8 text-center text-sm text-muted-foreground">
+        <div className="flex justify-center gap-5 mt-10 pt-8 border-t border-border">
+          <a href="https://www.instagram.com/ojexteriorcare/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Instagram</a>
+          <a href="https://www.facebook.com/groups/692584774780615/user/61579825178604/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Facebook</a>
+          <a href="https://www.tiktok.com/@oj.exterior.care" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-sm">TikTok</a>
+        </div>
+        <div className="text-center text-sm text-muted-foreground mt-4">
           © {new Date().getFullYear()} OJ Exterior Care. All rights reserved.
         </div>
       </div>

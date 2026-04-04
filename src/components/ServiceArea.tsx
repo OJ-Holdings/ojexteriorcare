@@ -19,11 +19,11 @@ const ServiceArea = () => {
             Proudly Serving Local Homeowners
           </h2>
           <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-            OJ Exterior Care is proud to serve homeowners in our local community and surrounding neighborhoods.
-            We're expanding our reach — contact us to see if we cover your area.
+            OJ Exterior Care proudly serves homeowners in Kenosha, WI and the surrounding communities.
+            Contact us to see if we cover your area.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {["Your City", "Nearby Town", "Local County", "Surrounding Areas"].map((area) => (
+            {["Kenosha", "Racine", "Zion", "Pleasant Prairie", "Somers", "Bristol", "Surrounding Areas"].map((area) => (
               <span
                 key={area}
                 className="px-5 py-2 rounded-full border border-border bg-card text-sm font-medium text-muted-foreground"
