@@ -3,18 +3,8 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah M.",
-    text: "Our driveway looked brand new after OJ Exterior Care finished. We couldn't believe the difference — stains we thought were permanent are completely gone.",
-    rating: 5,
-  },
-  {
-    name: "James T.",
-    text: "Fast, professional, and affordable. They cleaned our entire patio and sidewalk in a few hours. Highly recommend to anyone in the area.",
-    rating: 5,
-  },
-  {
-    name: "Lisa & Mark R.",
-    text: "We had oil stains on our driveway for years. OJ Exterior Care treated every single one and the concrete looks incredible. Worth every penny.",
+    name: "Troy Buck",
+    text: "I had my concrete patio and front entry side walk power washed today and I was very impressed with the job that was done. I would recommend them as the price was very reasonable and the outcome great.",
     rating: 5,
   },
 ];
