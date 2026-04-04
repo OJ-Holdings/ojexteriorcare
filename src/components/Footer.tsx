@@ -20,18 +20,20 @@ const Footer = () => {
               <li>Patio Cleaning</li>
               <li>Sidewalk Cleaning</li>
               <li>Deck Cleaning</li>
-              <li>Oil Stain Treatment</li>
-              <li>Rust Stain Treatment</li>
+              <li>Gutter Cleaning</li>
+              <li>Window Cleaning</li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-heading font-bold mb-4">Service Areas</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Your City</li>
-              <li>Nearby Town</li>
-              <li>Local County</li>
-              <li>Surrounding Areas</li>
+              <li>Kenosha, WI</li>
+              <li>Racine, WI</li>
+              <li>Zion, IL</li>
+              <li>Pleasant Prairie</li>
+              <li>Somers</li>
+              <li>Bristol</li>
             </ul>
           </div>
 
