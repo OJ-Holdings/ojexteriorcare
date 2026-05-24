@@ -4,11 +4,12 @@ import { Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Results", href: "/#results" },
+  { label: "Our Work", href: "/our-work" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Header = () => {
@@ -28,7 +29,7 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <img src={logo} alt="OJ Exterior Care" className="h-10 md:h-12 w-auto" />
         </a>
 
@@ -53,7 +54,7 @@ const Header = () => {
             Call Now
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="bg-gradient-orange text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             Get a Free Quote
@@ -86,7 +87,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setMobileOpen(false)}
               className="bg-gradient-orange text-primary-foreground px-5 py-3 rounded-lg text-sm font-semibold text-center mt-2"
             >
