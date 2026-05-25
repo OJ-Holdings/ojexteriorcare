@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, MessageCircle, Heart, Shield, Users, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import oscarImg from "@/assets/founders/oscar.jpg";
-import jacobImg from "@/assets/founders/jacob.jpg";
+import foundersImg from "@/assets/founders/founders.jpg";
 
 const values = [
   {
@@ -94,31 +93,17 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="grid grid-cols-2 gap-4"
+              className="rounded-2xl overflow-hidden border border-border bg-gradient-card"
             >
-              <div className="rounded-2xl overflow-hidden border border-border bg-gradient-card">
-                <img
-                  src={oscarImg}
-                  alt="Oscar, co-founder of OJ Exterior Care"
-                  className="w-full h-full object-cover aspect-[3/4]"
-                  loading="lazy"
-                />
-                <div className="px-4 py-3 border-t border-border">
-                  <p className="font-heading font-bold text-sm">Oscar</p>
-                  <p className="text-xs text-muted-foreground">Co-Founder</p>
-                </div>
-              </div>
-              <div className="rounded-2xl overflow-hidden border border-border bg-gradient-card">
-                <img
-                  src={jacobImg}
-                  alt="Jacob, co-founder of OJ Exterior Care"
-                  className="w-full h-full object-cover aspect-[3/4]"
-                  loading="lazy"
-                />
-                <div className="px-4 py-3 border-t border-border">
-                  <p className="font-heading font-bold text-sm">Jacob</p>
-                  <p className="text-xs text-muted-foreground">Co-Founder</p>
-                </div>
+              <img
+                src={foundersImg}
+                alt="Oscar and Jacob, co-founders of OJ Exterior Care"
+                className="w-full h-full object-cover aspect-[4/3]"
+                loading="lazy"
+              />
+              <div className="px-4 py-3 border-t border-border text-center">
+                <p className="font-heading font-bold text-sm">Oscar & Jacob</p>
+                <p className="text-xs text-muted-foreground">Co-Founders</p>
               </div>
             </motion.div>
           </div>
