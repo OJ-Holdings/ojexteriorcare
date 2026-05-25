@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, MessageCircle, Heart, Shield, Users, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import oscarImg from "@/assets/founders/oscar.jpg";
-import jacobImg from "@/assets/founders/jacob.jpg";
+import foundersImg from "@/assets/founders/founders.jpg";
 
 const values = [
   {
