@@ -3,26 +3,54 @@ import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-import driveBefore from "@/assets/work/driveway-before.jpg";
-import driveAfter from "@/assets/work/driveway-after.jpg";
 import patioBefore from "@/assets/work/patio-before.jpg";
 import patioAfter from "@/assets/work/patio-after.jpg";
 import oilBefore from "@/assets/work/oil-before.jpg";
 import oilAfter from "@/assets/work/oil-after.jpg";
-import sideBefore from "@/assets/work/sidewalk-before.jpg";
-import sideAfter from "@/assets/work/sidewalk-after.jpg";
 import gutterBefore from "@/assets/work/gutter-before.jpg";
 import gutterAfter from "@/assets/work/gutter-after.jpg";
 import deckBefore from "@/assets/work/deck-before.jpg";
 import deckAfter from "@/assets/work/deck-after.jpg";
+import drivewayWalkwayAsset from "@/assets/uploads/driveway-walkway-before-after.png.asset.json";
+import exposedAggregateAsset from "@/assets/uploads/exposed-aggregate-before-after.png.asset.json";
+import drivewaySpotsAsset from "@/assets/uploads/driveway-spots-before-after.png.asset.json";
+import windowCleaningAsset from "@/assets/uploads/window-cleaning.jpg.asset.json";
 
-const projects = [
-  { label: "Driveway Cleaning", before: driveBefore, after: driveAfter },
-  { label: "Patio Restoration", before: patioBefore, after: patioAfter },
-  { label: "Oil Stain Removal", before: oilBefore, after: oilAfter },
-  { label: "Sidewalk Cleaning", before: sideBefore, after: sideAfter },
-  { label: "Gutter Cleaning", before: gutterBefore, after: gutterAfter },
-  { label: "Deck Cleaning", before: deckBefore, after: deckAfter },
+type AssetPointer = { url: string };
+type Project = {
+  label: string;
+  before?: string;
+  after?: string;
+  full?: string;
+  location: string;
+};
+
+const drivewayWalkwayUrl = (drivewayWalkwayAsset as AssetPointer).url;
+const exposedAggregateUrl = (exposedAggregateAsset as AssetPointer).url;
+const drivewaySpotsUrl = (drivewaySpotsAsset as AssetPointer).url;
+const windowCleaningUrl = (windowCleaningAsset as AssetPointer).url;
+
+const projects: Project[] = [
+  {
+    label: "Driveway and Walkway Cleaning",
+    full: drivewayWalkwayUrl,
+    location: "Kenosha, WI",
+  },
+  {
+    label: "Exposed Aggregate Patio Cleaning",
+    full: exposedAggregateUrl,
+    location: "Kenosha Area",
+  },
+  {
+    label: "Driveway Spot Removal",
+    full: drivewaySpotsUrl,
+    location: "Southeast Wisconsin",
+  },
+  { label: "Patio Restoration", before: patioBefore, after: patioAfter, location: "Kenosha, WI" },
+  { label: "Oil Stain Removal", before: oilBefore, after: oilAfter, location: "Kenosha, WI" },
+  { label: "Window Cleaning", full: windowCleaningUrl, location: "Kenosha Area" },
+  { label: "Gutter Cleaning", before: gutterBefore, after: gutterAfter, location: "Kenosha, WI" },
+  { label: "Deck Cleaning", before: deckBefore, after: deckAfter, location: "Kenosha, WI" },
 ];
 
 const OurWork = () => {
@@ -44,7 +72,7 @@ const OurWork = () => {
               Real Homes. <span className="text-gradient-orange">Real Transformations.</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Browse before-and-after results from driveways, patios, oil stains, and more across Kenosha and the surrounding area.
+              Browse before-and-after results from driveways, patios, windows, and more across Kenosha and the surrounding area.
             </p>
           </motion.div>
         </div>
@@ -62,37 +90,53 @@ const OurWork = () => {
                 transition={{ delay: (i % 2) * 0.08, duration: 0.5 }}
                 className="group rounded-2xl border border-border bg-gradient-card overflow-hidden hover:border-primary/40 hover:shadow-glow transition-all duration-300"
               >
-                <div className="relative grid grid-cols-2">
-                  <div className="relative overflow-hidden aspect-[4/3]">
+                {p.full ? (
+                  <div className="relative overflow-hidden aspect-[16/10]">
                     <img
-                      src={p.before}
-                      alt={`${p.label} before`}
+                      src={p.full}
+                      alt={p.label}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-3 left-3 bg-background/80 backdrop-blur-sm border border-border text-muted-foreground text-[10px] font-bold tracking-widest px-2.5 py-1 rounded">
-                      BEFORE
-                    </div>
+                    {p.label !== "Window Cleaning" && (
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur-sm border border-border text-foreground text-[10px] font-bold tracking-widest px-2.5 py-1 rounded">
+                        BEFORE / AFTER
+                      </div>
+                    )}
                   </div>
-                  <div className="relative overflow-hidden aspect-[4/3]">
-                    <img
-                      src={p.after}
-                      alt={`${p.label} after`}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                ) : (
+                  <div className="relative grid grid-cols-2">
+                    <div className="relative overflow-hidden aspect-[4/3]">
+                      <img
+                        src={p.before}
+                        alt={`${p.label} before`}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute top-3 left-3 bg-background/80 backdrop-blur-sm border border-border text-muted-foreground text-[10px] font-bold tracking-widest px-2.5 py-1 rounded">
+                        BEFORE
+                      </div>
+                    </div>
+                    <div className="relative overflow-hidden aspect-[4/3]">
+                      <img
+                        src={p.after}
+                        alt={`${p.label} after`}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute top-3 right-3 bg-gradient-orange text-primary-foreground text-[10px] font-bold tracking-widest px-2.5 py-1 rounded shadow-glow">
+                        AFTER
+                      </div>
+                    </div>
+                    <div
+                      aria-hidden
+                      className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[3px] bg-gradient-orange shadow-glow z-10"
                     />
-                    <div className="absolute top-3 right-3 bg-gradient-orange text-primary-foreground text-[10px] font-bold tracking-widest px-2.5 py-1 rounded shadow-glow">
-                      AFTER
-                    </div>
                   </div>
-                  <div
-                    aria-hidden
-                    className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[3px] bg-gradient-orange shadow-glow z-10"
-                  />
-                </div>
-                <div className="px-5 py-4 border-t border-border flex items-center justify-between">
+                )}
+                <div className="px-5 py-4 border-t border-border flex items-center justify-between gap-4">
                   <h3 className="font-heading font-bold text-base md:text-lg">{p.label}</h3>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Kenosha, WI</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider shrink-0">{p.location}</span>
                 </div>
               </motion.div>
             ))}
