@@ -112,7 +112,7 @@ const OurWork = () => {
               Want Results Like These at <span className="text-gradient-orange">Your Home</span>?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Free, no-pressure quotes — usually same day.
+              Free, no-pressure quotes - usually same day.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a

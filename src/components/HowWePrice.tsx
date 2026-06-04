@@ -5,12 +5,12 @@ const points = [
   {
     icon: Ruler,
     title: "Measured to Your Property",
-    description: "Pricing is based on the actual square footage of your driveway, patio, or surfaces — not a one-size-fits-all guess.",
+    description: "Pricing is based on the actual square footage of your driveway, patio, or surfaces - not a one-size-fits-all guess.",
   },
   {
     icon: Sparkles,
     title: "Matched to Surface Condition",
-    description: "Light maintenance, heavy buildup, oil stains, or rust — the condition of your surfaces shapes the scope and the price.",
+    description: "Light maintenance, heavy buildup, oil stains, or rust - the condition of your surfaces shapes the scope and the price.",
   },
   {
     icon: BadgeCheck,
@@ -31,7 +31,7 @@ const HowWePrice = () => {
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">How We Price</span>
           <h2 className="text-3xl md:text-5xl font-bold font-heading mt-3 mb-4">
-            Every Home Is Different — So Every Quote Is <span className="text-gradient-orange">Custom</span>
+            Every Home Is Different - So Every Quote Is <span className="text-gradient-orange">Custom</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
             We don't believe in cookie-cutter pricing. Your quote is built around the actual size and condition of your surfaces,
@@ -68,7 +68,7 @@ const HowWePrice = () => {
             Ready for Your Free Custom Quote?
           </h3>
           <p className="text-muted-foreground mb-8">
-            Tell us about your project and we'll get you an honest, no-pressure price — usually same day.
+            Tell us about your project and we'll get you an honest, no-pressure price - usually same day.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a

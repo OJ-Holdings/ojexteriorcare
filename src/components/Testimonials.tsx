@@ -41,7 +41,7 @@ const Testimonials = () => {
                 ))}
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed mb-5">"{t.text}"</p>
-              <p className="font-heading font-bold text-sm">— {t.name}</p>
+              <p className="font-heading font-bold text-sm">- {t.name}</p>
             </motion.div>
           ))}
         </div>
