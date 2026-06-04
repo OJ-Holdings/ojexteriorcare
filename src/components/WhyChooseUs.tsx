@@ -7,7 +7,7 @@ const points = [
   { icon: DollarSign, title: "Honest Pricing", description: "Transparent quotes with no hidden fees. You know exactly what you're paying for." },
   { icon: Clock, title: "Fast Response Times", description: "Quick quotes and flexible scheduling. We respect your time and work around your availability." },
   { icon: MapPin, title: "Local & Reliable", description: "We're part of your community. Local service means accountability and care you can count on." },
-  { icon: ThumbsUp, title: "Driveways, Patios & More", description: "From concrete driveways to stone patios, steps, and walkways — we clean it all." },
+  { icon: ThumbsUp, title: "Driveways, Patios & More", description: "From concrete driveways to stone patios, steps, and walkways - we clean it all." },
 ];
 
 const WhyChooseUs = () => {

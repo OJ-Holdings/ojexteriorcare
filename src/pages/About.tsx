@@ -53,7 +53,7 @@ const About = () => {
               Two Local Guys. <span className="text-gradient-orange">One Real Mission.</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              We didn't set out to build a corporate empire. We set out to do honest work for honest people — and do it better than anyone else in Kenosha.
+              We didn't set out to build a corporate empire. We set out to do honest work for honest people - and do it better than anyone else in Kenosha.
             </p>
           </motion.div>
         </div>
@@ -77,13 +77,13 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  OJ Exterior Care started with two young guys from the Kenosha area — Oscar and Jacob — who saw a gap in the market: homeowners wanted professional exterior cleaning, but they were tired of dealing with big, impersonal companies that overpromised and underdelivered.
+                  OJ Exterior Care started with two young guys from the Kenosha area - Oscar and Jacob - who saw a gap in the market: homeowners wanted professional exterior cleaning, but they were tired of dealing with big, impersonal companies that overpromised and underdelivered.
                 </p>
                 <p>
                   So we started small. Just a pressure washer, a truck, and a commitment to doing things the right way. No shortcuts. No slick sales pitches. Just show up on time, work hard, and leave every surface looking better than we found it.
                 </p>
                 <p>
-                  Word spread. Neighbors told neighbors. Today, we're proud to serve Kenosha, Racine, Zion, and the surrounding communities — but we've never lost that local, neighbor-to-neighbor feel.
+                  Word spread. Neighbors told neighbors. Today, we're proud to serve Kenosha, Racine, Zion, and the surrounding communities - but we've never lost that local, neighbor-to-neighbor feel.
                 </p>
               </div>
             </motion.div>
@@ -126,7 +126,7 @@ const About = () => {
               Bring Professional Results and Real Accountability to Local Homeowners
             </h2>
             <p className="text-muted-foreground leading-relaxed text-lg">
-              We believe every homeowner deserves to feel proud of their property. Our mission is simple: deliver the kind of exterior cleaning that makes you stop and smile when you pull into your driveway — backed by people who actually answer the phone, show up when they say they will, and stand behind their work.
+              We believe every homeowner deserves to feel proud of their property. Our mission is simple: deliver the kind of exterior cleaning that makes you stop and smile when you pull into your driveway - backed by people who actually answer the phone, show up when they say they will, and stand behind their work.
             </p>
           </motion.div>
         </div>

@@ -25,11 +25,11 @@ const faqs = [
   },
   {
     q: "How long does a typical job take?",
-    a: "Most residential jobs are completed in 2–4 hours depending on size and scope. Larger or more detailed projects may take longer. We'll provide a time estimate with your quote.",
+    a: "Most residential jobs are completed in 2-4 hours depending on size and scope. Larger or more detailed projects may take longer. We'll provide a time estimate with your quote.",
   },
   {
     q: "Do you offer free quotes?",
-    a: "Yes — every quote is 100% free with no obligation. Just fill out our contact form, call, or text us and we'll get back to you quickly.",
+    a: "Yes - every quote is 100% free with no obligation. Just fill out our contact form, call, or text us and we'll get back to you quickly.",
   },
 ];
 
