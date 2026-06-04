@@ -16,6 +16,7 @@ import exposedAggregateAsset from "@/assets/uploads/exposed-aggregate-before-aft
 import drivewaySpotsAsset from "@/assets/uploads/driveway-spots-before-after.png.asset.json";
 import windowCleaningAsset from "@/assets/uploads/window-cleaning.jpg.asset.json";
 
+type AssetPointer = { url: string };
 type Project = {
   label: string;
   before?: string;
@@ -24,20 +25,25 @@ type Project = {
   location: string;
 };
 
+const drivewayWalkwayUrl = (drivewayWalkwayAsset as AssetPointer).url;
+const exposedAggregateUrl = (exposedAggregateAsset as AssetPointer).url;
+const drivewaySpotsUrl = (drivewaySpotsAsset as AssetPointer).url;
+const windowCleaningUrl = (windowCleaningAsset as AssetPointer).url;
+
 const projects: Project[] = [
   {
     label: "Driveway and Walkway Cleaning",
-    full: drivewayWalkwayAsset.url,
+    full: drivewayWalkwayUrl,
     location: "Kenosha, WI",
   },
   {
     label: "Exposed Aggregate Patio Cleaning",
-    full: exposedAggregateAsset.url,
+    full: exposedAggregateUrl,
     location: "Kenosha Area",
   },
   {
     label: "Driveway Spot Removal",
-    full: drivewaySpotsAsset.url,
+    full: drivewaySpotsUrl,
     location: "Southeast Wisconsin",
   },
   { label: "Patio Restoration", before: patioBefore, after: patioAfter, location: "Kenosha, WI" },
