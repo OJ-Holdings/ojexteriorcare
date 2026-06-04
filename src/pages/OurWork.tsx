@@ -48,7 +48,7 @@ const projects: Project[] = [
   },
   { label: "Patio Restoration", before: patioBefore, after: patioAfter, location: "Kenosha, WI" },
   { label: "Oil Stain Removal", before: oilBefore, after: oilAfter, location: "Kenosha, WI" },
-  { label: "Window Cleaning", full: windowCleaningAsset.url, location: "Kenosha Area" },
+  { label: "Window Cleaning", full: windowCleaningUrl, location: "Kenosha Area" },
   { label: "Gutter Cleaning", before: gutterBefore, after: gutterAfter, location: "Kenosha, WI" },
   { label: "Deck Cleaning", before: deckBefore, after: deckAfter, location: "Kenosha, WI" },
 ];
