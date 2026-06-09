@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, CheckCircle2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -40,10 +40,10 @@ const ContactForm = () => {
 
       // Try to send notification email (non-blocking)
       try {
-        await supabase.functions.invoke("send-transactional-email", {
+        const { data: fnData, error: fnError } = await supabase.functions.invoke("send-transactional-email", {
           body: {
             templateName: "quote-request-notification",
-            recipientEmail: "ojexteriorcare@gmail.com",
+            recipientEmail: "superbassoof@gmail.com",
             idempotencyKey: `quote-notify-${id}`,
             templateData: {
               name: formData.name,
@@ -55,14 +55,17 @@ const ContactForm = () => {
             },
           },
         });
-      } catch {
-        // Email notification is non-critical
+        if (fnError) console.error("Email function error:", fnError);
+        else console.log("Email function response:", fnData);
+      } catch (e) {
+        console.error("Email invoke exception:", e);
       }
 
       setSubmitted(true);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error submitting quote request:", error);
-      toast.error("Something went wrong. Please call us directly at (262) 351-7796.");
+      const msg = error?.message || error?.error_description || JSON.stringify(error);
+      toast.error(`Submit failed: ${msg}`);
     } finally {
       setLoading(false);
     }
@@ -93,7 +96,7 @@ const ContactForm = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="bg-gradient-card border border-primary/30 rounded-xl p-10 text-center shadow-glow"
             >
-              <div className="text-4xl mb-4">🎉</div>
+              <CheckCircle2 className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="font-heading font-bold text-xl mb-2">Quote Request Received!</h3>
               <p className="text-muted-foreground">We'll get back to you as soon as possible. Thank you for choosing OJ Exterior Care.</p>
             </motion.div>
@@ -112,6 +115,7 @@ const ContactForm = () => {
                     type="text"
                     name="name"
                     required
+                    autoComplete="name"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your full name"
@@ -124,6 +128,7 @@ const ContactForm = () => {
                     type="tel"
                     name="phone"
                     required
+                    autoComplete="tel"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="(555) 123-4567"
@@ -138,6 +143,7 @@ const ContactForm = () => {
                   <input
                     type="email"
                     name="email"
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="you@email.com"
@@ -149,6 +155,7 @@ const ContactForm = () => {
                   <input
                     type="text"
                     name="address"
+                    autoComplete="street-address"
                     value={formData.address}
                     onChange={handleChange}
                     placeholder="123 Main St"
@@ -173,6 +180,8 @@ const ContactForm = () => {
                   <option>Oil Stain Treatment</option>
                   <option>Rust Stain Treatment</option>
                   <option>Exterior Surface Washing</option>
+                  <option>Gutter Cleaning</option>
+                  <option>Window Cleaning</option>
                   <option>Multiple Services</option>
                 </select>
               </div>

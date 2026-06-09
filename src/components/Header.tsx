@@ -5,12 +5,10 @@ import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Services", href: "/#services" },
-  { label: "Results", href: "/#results" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Our Work", href: "/our-work" },
-  { label: "About Us", href: "/about" },
-  { label: "Why Us", href: "/#why-us" },
+  { label: "About", href: "/about" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/#contact" },
 ];
 
 const Header = () => {
@@ -25,7 +23,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`w-full transition-all duration-300 ${
         scrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-card" : "bg-transparent"
       }`}
     >

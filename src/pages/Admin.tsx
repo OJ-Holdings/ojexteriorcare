@@ -17,6 +17,7 @@ const Admin = () => {
   const [session, setSession] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [quotes, setQuotes] = useState<QuoteRequest[]>([]);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginError, setLoginError] = useState("");
@@ -38,11 +39,16 @@ const Admin = () => {
   }, [session]);
 
   const fetchQuotes = async () => {
+    setFetchError(null);
     const { data, error } = await supabase
       .from("quote_requests")
       .select("*")
       .order("created_at", { ascending: false });
-    if (!error && data) setQuotes(data as QuoteRequest[]);
+    if (error) {
+      setFetchError(`Error loading submissions: ${error.message} (code: ${error.code})`);
+    } else {
+      setQuotes(data as QuoteRequest[]);
+    }
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -137,7 +143,13 @@ const Admin = () => {
           </a>
         </div>
 
-        {quotes.length === 0 ? (
+        {fetchError && (
+          <div className="bg-destructive/10 border border-destructive/30 text-destructive rounded-lg p-4 mb-4 text-sm font-mono">
+            {fetchError}
+          </div>
+        )}
+
+        {!fetchError && quotes.length === 0 ? (
           <div className="text-center py-20 text-muted-foreground">
             <FileText className="w-10 h-10 mx-auto mb-3 opacity-50" />
             <p>No quote requests yet.</p>

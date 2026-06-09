@@ -16,12 +16,11 @@ const Footer = () => {
           <div>
             <h4 className="font-heading font-bold mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Driveway Cleaning</li>
-              <li>Patio Cleaning</li>
-              <li>Sidewalk Cleaning</li>
-              <li>Deck Cleaning</li>
-              <li>Gutter Cleaning</li>
-              <li>Window Cleaning</li>
+              {["Driveway Cleaning", "Patio Cleaning", "Sidewalk Cleaning", "Deck Cleaning", "Gutter Cleaning", "Window Cleaning"].map((s) => (
+                <li key={s}>
+                  <a href="/#services" className="hover:text-foreground transition-colors">{s}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
