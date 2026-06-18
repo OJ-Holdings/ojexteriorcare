@@ -7,8 +7,6 @@ import patioBefore from "@/assets/work/patio-before.jpg";
 import patioAfter from "@/assets/work/patio-after.jpg";
 import oilBefore from "@/assets/work/oil-before.jpg";
 import oilAfter from "@/assets/work/oil-after.jpg";
-import gutterBefore from "@/assets/work/gutter-before.jpg";
-import gutterAfter from "@/assets/work/gutter-after.jpg";
 import deckBefore from "@/assets/work/deck-before.jpg";
 import deckAfter from "@/assets/work/deck-after.jpg";
 import drivewayWalkwayAsset from "@/assets/uploads/driveway-walkway-before-after.png.asset.json";
@@ -49,7 +47,6 @@ const projects: Project[] = [
   { label: "Patio Restoration", before: patioBefore, after: patioAfter, location: "Kenosha, WI" },
   { label: "Oil Stain Removal", before: oilBefore, after: oilAfter, location: "Kenosha, WI" },
   { label: "Window Cleaning", full: windowCleaningUrl, location: "Kenosha Area" },
-  { label: "Gutter Cleaning", before: gutterBefore, after: gutterAfter, location: "Kenosha, WI" },
   { label: "Deck Cleaning", before: deckBefore, after: deckAfter, location: "Kenosha, WI" },
 ];
 

@@ -15,8 +15,6 @@ import sidewalkBefore from "@/assets/work/sidewalk-before.jpg";
 import sidewalkAfter from "@/assets/work/sidewalk-after.jpg";
 import deckBefore from "@/assets/work/deck-before.jpg";
 import deckAfter from "@/assets/work/deck-after.jpg";
-import gutterBefore from "@/assets/work/gutter-before.jpg";
-import gutterAfter from "@/assets/work/gutter-after.jpg";
 import oilBefore from "@/assets/work/oil-before.jpg";
 import oilAfter from "@/assets/work/oil-after.jpg";
 
@@ -210,7 +208,6 @@ const jobs = [
   { label: "Patio",     before: patioBefore,    after: patioAfter },
   { label: "Sidewalk",  before: sidewalkBefore, after: sidewalkAfter },
   { label: "Deck",      before: deckBefore,     after: deckAfter },
-  { label: "Gutters",   before: gutterBefore,   after: gutterAfter },
   { label: "Oil Stain", before: oilBefore,      after: oilAfter },
 ];
 
