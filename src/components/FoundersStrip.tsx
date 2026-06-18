@@ -24,7 +24,7 @@ const FoundersStrip = () => {
                 src={foundersImg}
                 alt="Oscar and Jacob, co-founders of OJ Exterior Care"
                 loading="lazy"
-                className="w-full object-cover aspect-[4/3]"
+                className="w-full object-cover object-top aspect-[3/4]"
               />
               <span className="absolute bottom-3 left-3 bg-carbon/80 backdrop-blur-sm text-bone font-mono text-[10px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full">
                 Oscar &amp; Jacob — Co-Founders
