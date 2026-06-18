@@ -35,43 +35,65 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 md:py-28 bg-secondary/50">
+    <section id="faq" className="py-24 md:py-32">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">FAQ</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-heading mt-3 mb-4">
-            Common Questions
-          </h2>
-        </motion.div>
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-4"
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <span className="font-mono text-[11px] text-ember">07</span>
+              <span className="eyebrow eyebrow-dim">FAQ</span>
+            </div>
+            <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.06] tracking-[-0.03em] text-bone mb-5">
+              Asked &amp;{" "}
+              <span className="accent-serif text-ember-gradient">answered.</span>
+            </h2>
+            <p className="text-bone-dim text-sm leading-relaxed max-w-xs">
+              Something we didn&rsquo;t cover?{" "}
+              <a href="sms:+12623517796" className="text-ember font-medium hover:underline underline-offset-4">
+                Text us
+              </a>{" "}
+              — we usually answer within the hour.
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto"
-        >
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, i) => (
-              <AccordionItem
-                key={i}
-                value={`faq-${i}`}
-                className="border border-border rounded-xl px-5 bg-gradient-card data-[state=open]:border-primary/30"
-              >
-                <AccordionTrigger className="text-left font-heading font-semibold text-sm hover:no-underline py-4">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="lg:col-span-8"
+          >
+            <Accordion type="single" collapsible className="border-t border-bone/10">
+              {faqs.map((faq, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`faq-${i}`}
+                  className="border-b border-bone/10"
+                >
+                  <AccordionTrigger className="text-left hover:no-underline py-6 gap-6 group">
+                    <span className="flex items-baseline gap-5">
+                      <span className="font-mono text-[10px] text-bone-dim tabular-nums shrink-0">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-display font-medium text-lg md:text-xl tracking-[-0.01em] text-bone group-hover:text-ember transition-colors duration-200">
+                        {faq.q}
+                      </span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-bone-dim text-[15px] leading-relaxed pb-7 pl-[3.1rem] max-w-2xl">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

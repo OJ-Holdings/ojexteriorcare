@@ -1,69 +1,66 @@
 import { motion } from "framer-motion";
 import { Shield, Eye, DollarSign, Clock, MapPin, Zap } from "lucide-react";
 
-// Bento grid items — first one is the featured "hero" cell
-const bentoItems = [
+const items = [
   {
     icon: Shield,
-    title: "Professional-Grade Equipment",
-    description: "Commercial pressure washers and surface cleaners purpose-built for results that hold up. No consumer-grade shortcuts.",
+    title: "Professional-grade equipment",
+    description:
+      "Commercial pressure washers and surface cleaners purpose-built for results that hold up. No consumer-grade shortcuts.",
     featured: true,
     stat: "150+",
-    statLabel: "jobs completed",
+    statLabel: "surfaces restored",
   },
   {
     icon: Eye,
-    title: "Attention to Detail",
+    title: "Attention to detail",
     description: "Every edge, crack, and corner. We don't cut corners because your home deserves better.",
-    featured: false,
   },
   {
     icon: DollarSign,
-    title: "Honest Pricing",
+    title: "Honest pricing",
     description: "Transparent quotes, no hidden fees. You know what you're paying before we start.",
-    featured: false,
   },
   {
     icon: Clock,
-    title: "Fast Response",
+    title: "Fast response",
     description: "Same-day quotes, flexible scheduling. We work around your availability.",
-    featured: false,
   },
   {
     icon: MapPin,
-    title: "Local & Accountable",
+    title: "Local & accountable",
     description: "We live here too. Local service means you can actually hold us to our word.",
-    featured: false,
   },
   {
     icon: Zap,
-    title: "Results That Last",
+    title: "Results that last",
     description: "We use the right pressure and technique for every surface so results actually last.",
-    featured: false,
   },
 ];
 
 const WhyChooseUs = () => {
   return (
-    <section id="why-us" className="py-24 md:py-32 relative bg-secondary/20">
-      <div className="absolute inset-0 bg-grid-pattern opacity-60" />
-      <div className="container relative">
+    <section id="why-us" className="py-24 md:py-36">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-14 max-w-2xl"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl mb-14 md:mb-16"
         >
-          <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3 block">Why OJ Exterior Care</span>
-          <h2 className="text-4xl md:text-6xl font-black font-heading leading-none">
-            THE RIGHT CHOICE<br />
-            <span className="text-gradient-orange">FOR YOUR HOME</span>
+          <div className="flex items-center gap-4 mb-6">
+            <span className="font-mono text-[11px] text-ember">07</span>
+            <span className="eyebrow eyebrow-dim">Why OJ Exterior Care</span>
+          </div>
+          <h2 className="font-display font-semibold text-4xl md:text-6xl leading-[1.02] tracking-[-0.03em] text-bone">
+            The right choice for{" "}
+            <span className="accent-serif text-ember-gradient">your home.</span>
           </h2>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
-          {bentoItems.map((item, i) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
+          {items.map((item, i) => {
             const Icon = item.icon;
             return (
               <motion.div
@@ -71,39 +68,43 @@ const WhyChooseUs = () => {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
-                className={`relative rounded-2xl border p-6 flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-card-hover ${
-                  item.featured
-                    ? "lg:col-span-2 bento-featured hover:border-primary/35"
-                    : "bg-gradient-card border-border hover:border-primary/20"
+                transition={{ duration: 0.45, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                className={`relative surface rounded-2xl p-7 flex flex-col lift overflow-hidden ${
+                  item.featured ? "lg:col-span-2" : ""
                 }`}
               >
-                {/* Glow on featured */}
                 {item.featured && (
                   <div
-                    className="absolute inset-0 pointer-events-none opacity-40"
-                    style={{
-                      background:
-                        "radial-gradient(ellipse 60% 60% at 20% 50%, hsl(25 100% 55% / 0.1), transparent)",
-                    }}
+                    aria-hidden
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ background: "radial-gradient(ellipse 60% 70% at 15% 80%, hsl(var(--ember) / 0.10), transparent)" }}
                   />
                 )}
 
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
-                  item.featured
-                    ? "bg-primary/20 border border-primary/30"
-                    : "bg-primary/10 border border-primary/15 group-hover:bg-primary/15 group-hover:border-primary/30"
-                } transition-all duration-300`}>
-                  <Icon className="w-6 h-6 text-primary" />
+                <div className="relative flex items-center justify-between mb-6">
+                  <span className="w-11 h-11 rounded-xl bg-ember/10 border border-ember/20 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-ember" strokeWidth={1.5} />
+                  </span>
+                  <span className="font-mono text-[10px] text-bone-dim tabular-nums">
+                    {String(i + 1).padStart(2, "0")} / 06
+                  </span>
                 </div>
 
-                <h3 className="font-heading font-bold text-lg mb-2 leading-tight">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed flex-1">{item.description}</p>
+                <h3 className="relative font-display font-semibold text-xl md:text-2xl tracking-[-0.02em] text-bone mb-2.5 leading-tight">
+                  {item.title}
+                </h3>
+                <p className="relative text-bone-dim text-sm leading-relaxed flex-1 max-w-md">
+                  {item.description}
+                </p>
 
                 {item.featured && item.stat && (
-                  <div className="mt-6 pt-5 border-t border-primary/15 flex items-baseline gap-2">
-                    <span className="text-5xl font-black font-heading text-gradient-orange leading-none">{item.stat}</span>
-                    <span className="text-sm text-muted-foreground font-medium">{item.statLabel}</span>
+                  <div className="relative mt-7 pt-5 border-t border-bone/10 flex items-baseline gap-3">
+                    <span className="accent-serif text-5xl md:text-6xl text-ember-gradient leading-none">
+                      {item.stat}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone-dim">
+                      {item.statLabel}
+                    </span>
                   </div>
                 )}
               </motion.div>

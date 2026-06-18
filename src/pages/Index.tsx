@@ -1,15 +1,12 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
-import Services from "@/components/Services";
 import BeforeAfter from "@/components/BeforeAfter";
-import Pricing from "@/components/Pricing";
-import HowWePrice from "@/components/HowWePrice";
-import BookingSection from "@/components/BookingSection";
-import Process from "@/components/Process";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import Services from "@/components/Services";
+import FoundersStrip from "@/components/FoundersStrip";
 import Testimonials from "@/components/Testimonials";
-import InstagramFeed from "@/components/InstagramFeed";
+import Pricing from "@/components/Pricing";
+import Process from "@/components/Process";
 import ServiceArea from "@/components/ServiceArea";
 import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
@@ -26,15 +23,12 @@ const Index = () => {
       </div>
       <Hero />
       <TrustBar />
-      <Services />
       <BeforeAfter />
-      <Pricing />
-      <HowWePrice />
-      <BookingSection />
-      <Process />
-      <WhyChooseUs />
+      <Services />
+      <FoundersStrip />
       <Testimonials />
-      <InstagramFeed />
+      <Pricing />
+      <Process />
       <ServiceArea />
       <FAQ />
       <ContactForm />

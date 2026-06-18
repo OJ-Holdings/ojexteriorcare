@@ -1,107 +1,146 @@
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { ArrowRight, Car, Umbrella, Route, TreePine, Droplets, Wrench, Waves, CloudRain, AppWindow } from "lucide-react";
-import { useRef, MouseEvent } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { useRef, useState, useCallback } from "react";
+
+import drivewayAfter from "@/assets/work/driveway-after.jpg";
+import patioAfter from "@/assets/work/patio-after.jpg";
+import sidewalkAfter from "@/assets/work/sidewalk-after.jpg";
+import deckAfter from "@/assets/work/deck-after.jpg";
+import gutterAfter from "@/assets/work/gutter-after.jpg";
+import oilAfter from "@/assets/work/oil-after.jpg";
 
 const services = [
-  { title: "Driveway Cleaning", description: "Remove years of grime, oil stains, and buildup. Restore curb appeal in hours.", icon: Car, href: "/services/driveway-pressure-washing" },
-  { title: "Patio Cleaning", description: "Deep clean that removes dirt, algae, and discoloration from any surface.", icon: Umbrella, href: "/services/patio-cleaning" },
-  { title: "Sidewalk Cleaning", description: "Clean, safe sidewalks that look fresh and well-maintained year-round.", icon: Route, href: "#contact" },
-  { title: "Deck Cleaning", description: "Gentle yet thorough cleaning for wood, composite, and concrete decks.", icon: TreePine, href: "#contact" },
-  { title: "Oil Stain Treatment", description: "Specialized treatment to lift and remove stubborn oil stains from concrete.", icon: Droplets, href: "#contact" },
-  { title: "Rust Stain Treatment", description: "Expert rust removal from concrete, pavers, and stone surfaces.", icon: Wrench, href: "#contact" },
-  { title: "Exterior Surface Washing", description: "Comprehensive cleaning for walls, steps, retaining walls, and more.", icon: Waves, href: "#contact" },
-  { title: "Gutter Cleaning", description: "Clear debris and buildup. Protect your home from water damage.", icon: CloudRain, href: "#contact" },
-  { title: "Window Cleaning", description: "Crystal-clear, streak-free windows inside and out. Let the light in.", icon: AppWindow, href: "/services/window-cleaning" },
+  { title: "Driveway Cleaning", description: "Remove years of grime, oil stains, and buildup. Restore curb appeal in hours.", href: "/services/driveway-pressure-washing", img: drivewayAfter },
+  { title: "Patio Cleaning", description: "Deep clean that removes dirt, algae, and discoloration from any surface.", href: "/services/patio-cleaning", img: patioAfter },
+  { title: "Sidewalk Cleaning", description: "Clean, safe sidewalks that look fresh and well-maintained year-round.", href: "#contact", img: sidewalkAfter },
+  { title: "Deck Cleaning", description: "Gentle yet thorough cleaning for wood, composite, and concrete decks.", href: "#contact", img: deckAfter },
+  { title: "Oil Stain Treatment", description: "Specialized treatment to lift and remove stubborn oil stains from concrete.", href: "#contact", img: oilAfter },
+  { title: "Rust Stain Treatment", description: "Expert rust removal from concrete, pavers, and stone surfaces.", href: "#contact", img: oilAfter },
+  { title: "Exterior Surface Washing", description: "Comprehensive cleaning for walls, steps, retaining walls, and more.", href: "#contact", img: patioAfter },
+  { title: "Gutter Cleaning", description: "Clear debris and buildup. Protect your home from water damage.", href: "#contact", img: gutterAfter },
+  { title: "Window Cleaning", description: "Crystal-clear, streak-free windows inside and out. Let the light in.", href: "/services/window-cleaning", img: sidewalkAfter },
 ];
 
-// ─── 3D Tilt Card ────────────────────────────────────────────────
-const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [5, -5]), { stiffness: 250, damping: 25 });
-  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-5, 5]), { stiffness: 250, damping: 25 });
-  const glowX = useTransform(mx, [-0.5, 0.5], ["0%", "100%"]);
-  const glowY = useTransform(my, [-0.5, 0.5], ["0%", "100%"]);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    mx.set((e.clientX - rect.left) / rect.width - 0.5);
-    my.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
-
-  const handleMouseLeave = () => { mx.set(0); my.set(0); };
-  const Icon = service.icon;
+const ServiceRow = ({
+  service,
+  index,
+  onEnter,
+  onLeave,
+}: {
+  service: typeof services[0];
+  index: number;
+  onEnter: (img: string) => void;
+  onLeave: () => void;
+}) => {
   const isLinked = service.href.startsWith("/services");
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
+    <motion.a
+      href={service.href}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.07 }}
-      style={{ perspective: 800 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+      onMouseEnter={() => onEnter(service.img)}
+      onMouseLeave={onLeave}
+      className="group relative grid grid-cols-[auto_1fr_auto] md:grid-cols-[64px_1fr_1fr_auto] items-center gap-x-4 md:gap-x-8 border-b border-bone/10 py-6 md:py-7 px-3 md:px-5 -mx-3 md:-mx-5 rounded-xl transition-colors duration-300 hover:bg-carbon-3"
     >
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{ rotateX, rotateY }}
-        className="group relative bg-gradient-card border border-border rounded-2xl p-6 h-full flex flex-col overflow-hidden hover:border-primary/30 transition-colors duration-300 hover:shadow-card-hover"
-      >
-        {/* Cursor glow */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-          style={{ background: `radial-gradient(ellipse 90px 90px at ${glowX} ${glowY}, hsl(25 100% 55% / 0.1), transparent)` }}
-        />
-
-        <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-4 group-hover:bg-primary/18 group-hover:border-primary/35 transition-all duration-300">
-          <Icon className="w-6 h-6 text-primary" />
-        </div>
-
-        <span className="absolute top-4 right-5 text-5xl font-black font-heading text-white/[0.04] select-none leading-none">
-          {String(index + 1).padStart(2, "0")}
+      <span className="font-mono text-[11px] text-bone-dim group-hover:text-ember transition-colors duration-300 tabular-nums">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <h3 className="font-display font-semibold text-2xl md:text-[1.9rem] leading-tight tracking-[-0.02em] text-bone group-hover:translate-x-1.5 transition-transform duration-300">
+        {service.title}
+      </h3>
+      <p className="hidden md:block text-sm text-bone-dim leading-relaxed max-w-sm">
+        {service.description}
+      </p>
+      <span className="flex items-center gap-3 justify-self-end">
+        <span className="hidden lg:block font-mono text-[10px] uppercase tracking-[0.16em] text-bone-dim opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {isLinked ? "View Service" : "Get a Quote"}
         </span>
-
-        <h3 className="text-lg font-bold font-heading mb-2 leading-tight">{service.title}</h3>
-        <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-5">{service.description}</p>
-
-        <a href={service.href} className="text-primary text-sm font-semibold flex items-center gap-1.5 group/link w-fit">
-          <span className="group-hover/link:underline underline-offset-2">{isLinked ? "Learn More" : "Get a Quote"}</span>
-          <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform duration-200" />
-        </a>
-      </motion.div>
-    </motion.div>
+        <span className="w-10 h-10 rounded-full border border-bone/15 flex items-center justify-center group-hover:bg-ember group-hover:border-ember transition-all duration-300">
+          <ArrowUpRight className="w-4 h-4 text-bone-dim group-hover:text-carbon transition-colors duration-300" />
+        </span>
+      </span>
+    </motion.a>
   );
 };
 
-// ─── Section ─────────────────────────────────────────────────────
 const Services = () => {
+  const [previewImg, setPreviewImg] = useState<string | null>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  // Cursor-following preview (desktop only)
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const px = useSpring(mx, { stiffness: 260, damping: 28, mass: 0.6 });
+  const py = useSpring(my, { stiffness: 260, damping: 28, mass: 0.6 });
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const rect = listRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mx.set(e.clientX - rect.left);
+    my.set(e.clientY - rect.top);
+  }, [mx, my]);
+
   return (
-    <section id="services" className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-grid-pattern" />
-      <div className="container relative">
+    <section id="services" className="py-24 md:py-36 relative">
+      <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
-          className="mb-16 max-w-2xl"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="grid md:grid-cols-12 gap-6 mb-14 md:mb-20"
         >
-          <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3 block">Our Services</span>
-          <h2 className="text-4xl md:text-6xl font-black font-heading leading-none mb-4">
-            EVERYTHING YOUR<br />
-            <span className="text-gradient-orange">EXTERIOR NEEDS</span>
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <div className="md:col-span-7">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="font-mono text-[11px] text-ember">02</span>
+              <span className="eyebrow eyebrow-dim">Services</span>
+            </div>
+            <h2 className="font-display font-semibold text-4xl md:text-6xl leading-[1.02] tracking-[-0.03em] text-bone">
+              Everything your exterior{" "}
+              <span className="accent-serif text-ember-gradient">needs.</span>
+            </h2>
+          </div>
+          <p className="md:col-span-4 md:col-start-9 self-end text-bone-dim leading-relaxed">
             Professional-grade equipment and attention to detail on every single job.
+            Nine services, one standard: done right.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div
+          ref={listRef}
+          onMouseMove={handleMouseMove}
+          className="relative border-t border-bone/10"
+        >
+          {/* Floating cursor preview */}
+          <motion.div
+            aria-hidden
+            className="hidden lg:block absolute z-30 pointer-events-none w-[300px] aspect-[4/3] rounded-xl overflow-hidden border border-bone/20 shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
+            style={{
+              x: px,
+              y: py,
+              translateX: 40,
+              translateY: "-50%",
+              opacity: previewImg ? 1 : 0,
+              scale: previewImg ? 1 : 0.92,
+              transition: "opacity 0.25s ease, scale 0.25s ease",
+            }}
+          >
+            {previewImg && (
+              <img src={previewImg} alt="" className="w-full h-full object-cover" />
+            )}
+          </motion.div>
+
           {services.map((service, i) => (
-            <ServiceCard key={service.title} service={service} index={i} />
+            <ServiceRow
+              key={service.title}
+              service={service}
+              index={i}
+              onEnter={(img) => setPreviewImg(img)}
+              onLeave={() => setPreviewImg(null)}
+            />
           ))}
         </div>
       </div>

@@ -55,127 +55,150 @@ const projects: Project[] = [
 
 const OurWork = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <div className="min-h-screen bg-carbon">
+      <div className="fixed top-0 inset-x-0 z-50">
+        <Header />
+      </div>
 
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-dark" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
-        <div className="container relative z-10 text-center max-w-3xl">
+      {/* Hero */}
+      <section className="relative pt-40 pb-16 md:pt-48 md:pb-24 overflow-hidden grain">
+        <div
+          aria-hidden
+          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(var(--ember) / 0.10) 0%, transparent 65%)", filter: "blur(60px)" }}
+        />
+        <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Our Work</span>
-            <h1 className="text-4xl md:text-6xl font-bold font-heading mt-3 mb-5">
-              Real Homes. <span className="text-gradient-orange">Real Transformations.</span>
+            <div className="glass rounded-full px-4 py-2 flex items-center gap-2.5 w-fit mb-8">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone/90">
+                The Portfolio — 2025/26
+              </span>
+            </div>
+            <h1 className="font-display font-semibold text-5xl md:text-7xl leading-[1.0] tracking-[-0.04em] text-bone mb-6 max-w-4xl">
+              Real homes. Real{" "}
+              <span className="accent-serif text-ember-gradient">transformations.</span>
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Browse before-and-after results from driveways, patios, windows, and more across Kenosha and the surrounding area.
+            <p className="text-bone-dim text-lg md:text-xl max-w-2xl leading-relaxed">
+              Browse before-and-after results from driveways, patios, windows, and
+              more across Kenosha and the surrounding area.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-secondary/30">
+      {/* Gallery */}
+      <section className="py-16 md:py-24 bg-carbon-2/50">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-x-10 md:gap-y-14">
             {projects.map((p, i) => (
-              <motion.div
+              <motion.figure
                 key={p.label}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: (i % 2) * 0.08, duration: 0.5 }}
-                className="group rounded-2xl border border-border bg-gradient-card overflow-hidden hover:border-primary/40 hover:shadow-glow transition-all duration-300"
+                transition={{ delay: (i % 2) * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="group"
               >
-                {p.full ? (
-                  <div className="relative overflow-hidden aspect-[16/10]">
-                    <img
-                      src={p.full}
-                      alt={p.label}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {p.label !== "Window Cleaning" && (
-                      <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-background/80 backdrop-blur-sm border border-border text-foreground text-[10px] font-bold tracking-widest px-2.5 py-1 rounded">
-                        BEFORE / AFTER
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="relative grid grid-cols-2">
-                    <div className="relative overflow-hidden aspect-[4/3]">
+                <div className="frame bg-carbon-2 lift">
+                  {p.full ? (
+                    <div className="relative overflow-hidden aspect-[16/10]">
                       <img
-                        src={p.before}
-                        alt={`${p.label} before`}
+                        src={p.full}
+                        alt={p.label}
                         loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                       />
-                      <div className="absolute top-3 left-3 bg-background/80 backdrop-blur-sm border border-border text-muted-foreground text-[10px] font-bold tracking-widest px-2.5 py-1 rounded">
-                        BEFORE
-                      </div>
+                      {p.label !== "Window Cleaning" && (
+                        <span className="absolute top-3 left-1/2 -translate-x-1/2 bg-carbon/80 backdrop-blur-sm text-bone font-mono text-[9px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
+                          Before / After
+                        </span>
+                      )}
                     </div>
-                    <div className="relative overflow-hidden aspect-[4/3]">
-                      <img
-                        src={p.after}
-                        alt={`${p.label} after`}
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  ) : (
+                    <div className="relative grid grid-cols-2">
+                      <div className="relative overflow-hidden aspect-[4/3]">
+                        <img
+                          src={p.before}
+                          alt={`${p.label} before`}
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                        />
+                        <span className="absolute top-3 left-3 bg-carbon/80 backdrop-blur-sm text-bone font-mono text-[9px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
+                          Before
+                        </span>
+                      </div>
+                      <div className="relative overflow-hidden aspect-[4/3]">
+                        <img
+                          src={p.after}
+                          alt={`${p.label} after`}
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                        />
+                        <span className="absolute top-3 right-3 bg-leaf text-carbon font-mono font-semibold text-[9px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
+                          After
+                        </span>
+                      </div>
+                      <div
+                        aria-hidden
+                        className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[2px] bg-ember z-10"
                       />
-                      <div className="absolute top-3 right-3 bg-gradient-orange text-primary-foreground text-[10px] font-bold tracking-widest px-2.5 py-1 rounded shadow-glow">
-                        AFTER
-                      </div>
                     </div>
-                    <div
-                      aria-hidden
-                      className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[3px] bg-gradient-orange shadow-glow z-10"
-                    />
-                  </div>
-                )}
-                <div className="px-5 py-4 border-t border-border flex items-center justify-between gap-4">
-                  <h3 className="font-heading font-bold text-base md:text-lg">{p.label}</h3>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider shrink-0">{p.location}</span>
+                  )}
                 </div>
-              </motion.div>
+                <figcaption className="caption flex items-center justify-between mt-4">
+                  <span>{p.label}</span>
+                  <span>{p.location}</span>
+                </figcaption>
+              </motion.figure>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
+      {/* CTA */}
+      <section className="py-16 md:py-24">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center rounded-2xl border border-border bg-gradient-card p-8 md:p-12 shadow-card"
+            className="surface rounded-3xl p-8 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden"
           >
-            <h2 className="text-2xl md:text-4xl font-bold font-heading mb-3">
-              Want Results Like These at <span className="text-gradient-orange">Your Home</span>?
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              Free, no-pressure quotes - usually same day.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 50% 80% at 85% 20%, hsl(var(--ember) / 0.10), transparent)" }}
+            />
+            <div className="relative">
+              <h2 className="font-display font-semibold text-3xl md:text-5xl tracking-[-0.03em] text-bone mb-3">
+                Want results like these at{" "}
+                <span className="accent-serif text-ember-gradient">your home?</span>
+              </h2>
+              <p className="text-bone-dim">Free, no-pressure quotes — usually same day.</p>
+            </div>
+            <div className="relative flex flex-wrap gap-3 shrink-0">
               <a
                 href="/#contact"
-                className="bg-gradient-orange text-primary-foreground px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-glow"
+                className="group bg-ember text-carbon px-6 py-3.5 rounded-full font-display font-semibold text-sm flex items-center gap-2 hover:bg-ember-bright glow-ember-sm transition-colors duration-200"
               >
-                Get a Free Quote <ArrowRight className="w-4 h-4" />
+                Free Quote
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
                 href="tel:+12623517796"
-                className="border border-border bg-secondary text-foreground px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-muted transition-colors"
+                className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
               >
-                <Phone className="w-4 h-4" /> Call Now
+                <Phone className="w-3.5 h-3.5 text-ember" /> Call
               </a>
               <a
                 href="sms:+12623517796"
-                className="border border-border bg-secondary text-foreground px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-muted transition-colors"
+                className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
               >
-                <MessageCircle className="w-4 h-4" /> Text Us
+                <MessageCircle className="w-3.5 h-3.5 text-ember" /> Text
               </a>
             </div>
           </motion.div>

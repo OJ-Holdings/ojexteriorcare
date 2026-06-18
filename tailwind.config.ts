@@ -14,10 +14,27 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Barlow Condensed', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        heading: ['Instrument Sans', 'sans-serif'],
+        display: ['Instrument Sans', 'sans-serif'],
+        serif: ['Instrument Serif', 'Georgia', 'serif'],
+        body: ['Instrument Sans', 'sans-serif'],
+        mono: ['Spline Sans Mono', 'monospace'],
       },
       colors: {
+        carbon: {
+          DEFAULT: "hsl(var(--carbon))",
+          2: "hsl(var(--carbon-2))",
+          3: "hsl(var(--carbon-3))",
+        },
+        bone: {
+          DEFAULT: "hsl(var(--bone))",
+          dim: "hsl(var(--bone-dim))",
+        },
+        ember: {
+          DEFAULT: "hsl(var(--ember))",
+          bright: "hsl(var(--ember-bright))",
+        },
+        leaf: "hsl(var(--leaf))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

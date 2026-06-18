@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight, Phone } from "lucide-react";
 
 // TODO: Replace CALENDLY_URL with your actual Calendly link.
 // 1. Create a free account at https://calendly.com
@@ -9,24 +8,27 @@ const CALENDLY_URL = "https://calendly.com/ojexteriorcare/free-quote";
 
 const BookingSection = () => {
   return (
-    <section id="book" className="py-20 md:py-28 bg-secondary/50">
+    <section id="book" className="py-24 md:py-32">
       <div className="container">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-12 md:mb-14"
           >
-            <div className="w-14 h-14 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center">
-              <Calendar className="w-7 h-7 text-primary" />
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <span className="font-mono text-[11px] text-ember">05</span>
+              <span className="eyebrow eyebrow-dim">Book Online</span>
             </div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Book Online</span>
-            <h2 className="text-3xl md:text-5xl font-bold font-heading mt-3 mb-4">
-              Schedule a Consultation
+            <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.06] tracking-[-0.03em] text-bone mb-4">
+              Schedule a{" "}
+              <span className="accent-serif text-ember-gradient">consultation.</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-              Pick a time that works for you and we'll call to confirm your free quote. No pressure, no commitment.
+            <p className="text-bone-dim max-w-xl mx-auto leading-relaxed">
+              Pick a time that works for you and we&rsquo;ll call to confirm your free
+              quote. No pressure, no commitment.
             </p>
           </motion.div>
 
@@ -34,12 +36,11 @@ const BookingSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="rounded-2xl border border-border overflow-hidden bg-gradient-card shadow-card"
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="surface rounded-2xl overflow-hidden"
           >
-            {/* Calendly embed */}
             <iframe
-              src={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=111111&text_color=fafafa&primary_color=f07f28`}
+              src={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=121113&text_color=f2ede6&primary_color=ea6c1e`}
               width="100%"
               height="650"
               frameBorder="0"
@@ -49,23 +50,21 @@ const BookingSection = () => {
             />
           </motion.div>
 
-          {/* Fallback for users who prefer phone */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-center text-sm text-muted-foreground mt-6"
+            className="text-center caption mt-6"
           >
             Prefer to call?{" "}
-            <a href="tel:+12623517796" className="text-primary font-semibold hover:underline">
+            <a href="tel:+12623517796" className="text-ember font-semibold hover:underline underline-offset-4">
               (262) 351-7796
             </a>{" "}
             — or{" "}
-            <a href="#contact" className="text-primary font-semibold hover:underline">
+            <a href="#contact" className="text-ember font-semibold hover:underline underline-offset-4">
               fill out the form below
             </a>
-            .
           </motion.p>
         </div>
       </div>

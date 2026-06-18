@@ -1,59 +1,65 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, MessageCircle, Ruler, Sparkles, BadgeCheck } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 
 const points = [
   {
-    icon: Ruler,
-    title: "Measured to Your Property",
-    description: "Pricing is based on the actual square footage of your driveway, patio, or surfaces - not a one-size-fits-all guess.",
+    num: "01",
+    title: "Measured to your property",
+    description:
+      "Pricing is based on the actual square footage of your driveway, patio, or surfaces — not a one-size-fits-all guess.",
   },
   {
-    icon: Sparkles,
-    title: "Matched to Surface Condition",
-    description: "Light maintenance, heavy buildup, oil stains, or rust - the condition of your surfaces shapes the scope and the price.",
+    num: "02",
+    title: "Matched to surface condition",
+    description:
+      "Light maintenance, heavy buildup, oil stains, or rust — the condition of your surfaces shapes the scope and the price.",
   },
   {
-    icon: BadgeCheck,
-    title: "Always Free & No Obligation",
-    description: "Every quote is free. We assess the job honestly, give you a straightforward price, and leave the decision up to you.",
+    num: "03",
+    title: "Always free & no obligation",
+    description:
+      "Every quote is free. We assess the job honestly, give you a straightforward price, and leave the decision up to you.",
   },
 ];
 
 const HowWePrice = () => {
   return (
-    <section id="how-we-price" className="py-20 md:py-28 bg-secondary/50">
+    <section id="how-we-price" className="py-24 md:py-32 bg-carbon-2/50">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16 max-w-3xl mx-auto"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl mb-14 md:mb-16"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">How We Price</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-heading mt-3 mb-4">
-            Every Home Is Different - So Every Quote Is <span className="text-gradient-orange">Custom</span>
+          <div className="flex items-center gap-4 mb-6">
+            <span className="font-mono text-[11px] text-ember">04</span>
+            <span className="eyebrow eyebrow-dim">How We Price</span>
+          </div>
+          <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.06] tracking-[-0.03em] text-bone">
+            Every home is different — so every quote is{" "}
+            <span className="accent-serif text-ember-gradient">custom.</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            We don't believe in cookie-cutter pricing. Your quote is built around the actual size and condition of your surfaces,
-            so you only pay for the work your property actually needs.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-14">
+        <div className="grid md:grid-cols-3 gap-5">
           {points.map((point, i) => (
             <motion.div
               key={point.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-xl p-6 md:p-8 border border-border bg-gradient-card hover:border-primary/30 transition-colors"
+              transition={{ delay: i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="surface rounded-2xl p-8 lift"
             >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
-                <point.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-bold font-heading mb-2">{point.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{point.description}</p>
+              <span className="ghost-numeral text-6xl md:text-7xl block mb-6 select-none" aria-hidden>
+                {point.num}
+              </span>
+              <h3 className="font-display font-semibold text-xl md:text-2xl tracking-[-0.02em] text-bone mb-3">
+                {point.title}
+              </h3>
+              <p className="text-sm text-bone-dim leading-relaxed">{point.description}</p>
             </motion.div>
           ))}
         </div>
@@ -62,32 +68,31 @@ const HowWePrice = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center rounded-2xl border border-border bg-gradient-card p-8 md:p-10 shadow-card"
+          className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-bone/10 pt-8"
         >
-          <h3 className="text-2xl md:text-3xl font-bold font-heading mb-3">
-            Ready for Your Free Custom Quote?
-          </h3>
-          <p className="text-muted-foreground mb-8">
-            Tell us about your project and we'll get you an honest, no-pressure price - usually same day.
+          <p className="text-bone-dim text-sm max-w-md">
+            Tell us about your project and we&rsquo;ll get you an honest, no-pressure
+            price — <span className="text-bone font-medium">usually same day.</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-wrap gap-3 shrink-0">
             <a
               href="#contact"
-              className="bg-gradient-orange text-primary-foreground px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-glow"
+              className="group bg-ember text-carbon px-6 py-3.5 rounded-full font-display font-semibold text-sm flex items-center gap-2 hover:bg-ember-bright transition-colors duration-200"
             >
-              Get a Free Quote <ArrowRight className="w-4 h-4" />
+              Free Quote
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             <a
               href="tel:+12623517796"
-              className="border border-border bg-secondary text-foreground px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-muted transition-colors"
+              className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
             >
-              <Phone className="w-4 h-4" /> Call Now
+              <Phone className="w-3.5 h-3.5 text-ember" /> Call
             </a>
             <a
               href="sms:+12623517796"
-              className="border border-border bg-secondary text-foreground px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-muted transition-colors"
+              className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
             >
-              <MessageCircle className="w-4 h-4" /> Text Us
+              <MessageCircle className="w-3.5 h-3.5 text-ember" /> Text
             </a>
           </div>
         </motion.div>
