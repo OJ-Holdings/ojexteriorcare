@@ -6,7 +6,6 @@ import drivewayAfter from "@/assets/work/driveway-after.jpg";
 import patioAfter from "@/assets/work/patio-after.jpg";
 import sidewalkAfter from "@/assets/work/sidewalk-after.jpg";
 import deckAfter from "@/assets/work/deck-after.jpg";
-import gutterAfter from "@/assets/work/gutter-after.jpg";
 import oilAfter from "@/assets/work/oil-after.jpg";
 
 const services = [
@@ -17,7 +16,7 @@ const services = [
   { title: "Oil Stain Treatment", description: "Specialized treatment to lift and remove stubborn oil stains from concrete.", href: "#contact", img: oilAfter },
   { title: "Rust Stain Treatment", description: "Expert rust removal from concrete, pavers, and stone surfaces.", href: "#contact", img: oilAfter },
   { title: "Exterior Surface Washing", description: "Comprehensive cleaning for walls, steps, retaining walls, and more.", href: "#contact", img: patioAfter },
-  { title: "Gutter Cleaning", description: "Clear debris and buildup. Protect your home from water damage.", href: "#contact", img: gutterAfter },
+  { title: "Gutter Cleaning", description: "Clear debris and buildup. Protect your home from water damage.", href: "#contact", img: patioAfter },
   { title: "Window Cleaning", description: "Crystal-clear, streak-free windows inside and out. Let the light in.", href: "/services/window-cleaning", img: sidewalkAfter },
 ];
 
@@ -104,7 +103,7 @@ const Services = () => {
             </h2>
           </div>
           <p className="md:col-span-4 md:col-start-9 self-end text-bone-dim leading-relaxed">
-            Professional-grade equipment and attention to detail on every single job.
+            Pro equipment and real attention on every job.
             Nine services, one standard: done right.
           </p>
         </motion.div>
