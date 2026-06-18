@@ -27,7 +27,7 @@ const FoundersStrip = () => {
                 className="w-full object-cover object-top aspect-[3/4]"
               />
               <span className="absolute bottom-3 left-3 bg-carbon/80 backdrop-blur-sm text-bone font-mono text-[10px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full">
-                Oscar &amp; Jacob — Co-Founders
+                Oscar &amp; Jacob, Co-Founders
               </span>
             </div>
           </motion.figure>
@@ -41,7 +41,7 @@ const FoundersStrip = () => {
           >
             <span className="eyebrow block mb-6">The Crew</span>
             <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.05] tracking-[-0.03em] text-bone mb-6">
-              Hi — we&rsquo;re{" "}
+              Hi, we&rsquo;re{" "}
               <span className="accent-serif text-ember-gradient">Oscar &amp; Jacob.</span>
             </h2>
             <p className="text-bone-dim text-lg leading-relaxed mb-4 max-w-lg">

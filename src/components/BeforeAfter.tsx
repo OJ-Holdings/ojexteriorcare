@@ -282,7 +282,7 @@ const BeforeAfter = () => {
           </div>
           <p className="md:col-span-4 md:col-start-9 self-end text-bone-dim leading-relaxed">
             Drag the slider, hover the photos. Real results from real homes in
-            Kenosha and Racine — nothing staged, nothing stock.
+            Kenosha and Racine. Nothing staged, nothing stock.
           </p>
         </motion.div>
 

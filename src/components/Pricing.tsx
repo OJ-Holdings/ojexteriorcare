@@ -73,7 +73,7 @@ const Pricing = () => {
           </div>
           <p className="md:col-span-4 md:col-start-9 self-end text-bone-dim leading-relaxed">
             Every property is different, so every quote is custom. These ranges give
-            you a realistic ballpark — your actual quote is always free and
+            you a realistic ballpark. Your actual quote is always free and
             no-obligation.
           </p>
         </motion.div>
@@ -117,7 +117,7 @@ const Pricing = () => {
                 <ul className="mt-2.5 space-y-1">
                   {s.factors.map((f) => (
                     <li key={f} className="font-mono text-[11px] text-bone-dim tracking-wide">
-                      — {f}
+                      {f}
                     </li>
                   ))}
                 </ul>
@@ -142,7 +142,7 @@ const Pricing = () => {
           className="max-w-4xl mx-auto mt-10 grid sm:grid-cols-3 gap-x-10 gap-y-6"
         >
           {[
-            { t: "Measured to your property", d: "Priced on actual square footage — never a one-size-fits-all guess." },
+            { t: "Measured to your property", d: "Priced on actual square footage, not a one-size-fits-all guess." },
             { t: "Matched to condition", d: "Light maintenance or heavy buildup, the scope shapes the price." },
             { t: "Free & no obligation", d: "Honest assessment, straightforward price, decision's all yours." },
           ].map((p, i) => (
@@ -165,8 +165,8 @@ const Pricing = () => {
         >
           <div>
             <h3 className="font-display font-semibold text-2xl md:text-3xl tracking-[-0.02em] text-bone">
-              Get your exact price —{" "}
-              <span className="accent-serif text-ember">it&rsquo;s free.</span>
+              Get your exact price.{" "}
+              <span className="accent-serif text-ember">It&rsquo;s free.</span>
             </h3>
             <p className="text-bone-dim text-sm mt-1.5">
               Submit your info and we&rsquo;ll get back to you with a real number, usually same day.

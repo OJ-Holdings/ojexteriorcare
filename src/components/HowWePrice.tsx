@@ -6,13 +6,13 @@ const points = [
     num: "01",
     title: "Measured to your property",
     description:
-      "Pricing is based on the actual square footage of your driveway, patio, or surfaces — not a one-size-fits-all guess.",
+      "Pricing is based on the actual square footage of your driveway, patio, or surfaces. Not a one-size-fits-all guess.",
   },
   {
     num: "02",
     title: "Matched to surface condition",
     description:
-      "Light maintenance, heavy buildup, oil stains, or rust — the condition of your surfaces shapes the scope and the price.",
+      "Light maintenance, heavy buildup, oil stains, or rust: the condition of your surfaces shapes the scope and the price.",
   },
   {
     num: "03",
@@ -38,7 +38,7 @@ const HowWePrice = () => {
             <span className="eyebrow eyebrow-dim">How We Price</span>
           </div>
           <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.06] tracking-[-0.03em] text-bone">
-            Every home is different — so every quote is{" "}
+            Every home is different, so every quote is{" "}
             <span className="accent-serif text-ember-gradient">custom.</span>
           </h2>
         </motion.div>
@@ -72,7 +72,7 @@ const HowWePrice = () => {
         >
           <p className="text-bone-dim text-sm max-w-md">
             Tell us about your project and we&rsquo;ll get you an honest, no-pressure
-            price — <span className="text-bone font-medium">usually same day.</span>
+            price, <span className="text-bone font-medium">usually same day.</span>
           </p>
           <div className="flex flex-wrap gap-3 shrink-0">
             <a

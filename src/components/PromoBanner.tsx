@@ -25,7 +25,7 @@ const PromoBanner = () => {
           Offer
         </span>
         <p className="font-mono font-medium text-[11px] sm:text-xs uppercase tracking-[0.1em]">
-          Summer special — 10% off your first service.{" "}
+          Summer special: 10% off your first service.{" "}
           <a href="#contact" className="font-semibold underline underline-offset-4 hover:opacity-75 transition-opacity">
             Book now →
           </a>

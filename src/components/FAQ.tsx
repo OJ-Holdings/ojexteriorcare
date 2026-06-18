@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Can you remove oil stains?",
-    a: "Yes! We specialize in oil stain treatment. Our professional-grade solutions and techniques can remove most oil stains from concrete and asphalt surfaces.",
+    a: "Yes. We can remove most oil stains from concrete and asphalt surfaces.",
   },
   {
     q: "Can you remove rust stains?",
@@ -58,7 +58,7 @@ const FAQ = () => {
               <a href="sms:+12623517796" className="text-ember font-medium hover:underline underline-offset-4">
                 Text us
               </a>{" "}
-              — we usually answer within the hour.
+. We usually answer within the hour.
             </p>
           </motion.div>
 

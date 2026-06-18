@@ -175,8 +175,8 @@ const Hero = () => {
           transition={{ duration: 0.55, delay: 0.65 }}
           className="text-bone/65 text-lg md:text-xl leading-relaxed max-w-xl mb-9"
         >
-          Driveways, patios, windows &amp; more — restored with pro-grade equipment
-          and an obsessive eye for detail. <span className="text-bone">Kenosha&rsquo;s most trusted exterior team.</span>
+          Driveways, patios, windows and more, cleaned with pro-grade equipment
+          by a crew that actually shows up. <span className="text-bone">Kenosha&rsquo;s most trusted exterior team.</span>
         </motion.p>
 
         <motion.div

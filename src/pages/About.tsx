@@ -62,7 +62,7 @@ const About = () => {
             </h1>
             <p className="text-bone-dim text-lg md:text-xl max-w-2xl leading-relaxed">
               We didn&rsquo;t set out to build a corporate empire. We set out to do honest
-              work for honest people — and do it better than anyone else in Kenosha.
+              work for honest people and do it better than anyone else in Kenosha.
             </p>
           </motion.div>
         </div>
@@ -85,8 +85,8 @@ const About = () => {
               </h2>
               <div className="space-y-5 text-bone-dim leading-relaxed">
                 <p>
-                  OJ Exterior Care started with two young guys from the Kenosha area — Oscar
-                  and Jacob — who saw a gap in the market: homeowners wanted professional
+                  OJ Exterior Care started with two young guys from the Kenosha area, Oscar
+                  and Jacob, who saw a gap in the market: homeowners wanted professional
                   exterior cleaning, but they were tired of dealing with big, impersonal
                   companies that overpromised and underdelivered.
                 </p>
@@ -98,7 +98,7 @@ const About = () => {
                 </p>
                 <p>
                   Word spread. Neighbors told neighbors. Today, we&rsquo;re proud to serve
-                  Kenosha, Racine, Zion, and the surrounding communities — but we&rsquo;ve
+                  Kenosha, Racine, Zion, and the surrounding communities, but we&rsquo;ve
                   never lost that local, neighbor-to-neighbor feel.
                 </p>
               </div>
@@ -119,7 +119,7 @@ const About = () => {
                 />
               </div>
               <figcaption className="caption flex items-center justify-between mt-4">
-                <span>Oscar &amp; Jacob — Co-Founders</span>
+                <span>Oscar &amp; Jacob, Co-Founders</span>
                 <span>Kenosha, WI</span>
               </figcaption>
             </motion.figure>
@@ -145,7 +145,7 @@ const About = () => {
             <p className="font-serif text-2xl md:text-4xl text-bone/90 leading-snug">
               Deliver the kind of exterior cleaning that makes you{" "}
               <em className="text-ember">stop and smile</em> when you pull into your
-              driveway — backed by people who actually answer the phone, show up when
+              driveway, backed by people who actually answer the phone, show up when
               they say they will, and stand behind their work.
             </p>
           </motion.div>

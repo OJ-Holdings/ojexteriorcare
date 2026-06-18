@@ -4,8 +4,8 @@ import ServicePage from "@/components/ServicePage";
 const WindowCleaning = () => (
   <ServicePage
     title="Window Cleaning"
-    tagline="Crystal-clear windows, inside and out. Professional streak-free results that make every room feel brighter."
-    description="Dirty windows are something you stop noticing until they're clean — then you can't believe you waited. We clean windows on homes of all sizes using professional squeegee technique and streak-free solutions, reaching upper floors safely and leaving no residue. Available for exterior-only or interior + exterior cleans."
+    tagline="Clean windows, inside and out. Streak-free results that make every room feel brighter."
+    description="Dirty windows are something you stop noticing until they're clean. Then you can't believe you waited. We clean windows on homes of all sizes using a squeegee and cleaning solution, reaching upper floors safely and leaving no residue. Available for exterior-only or interior and exterior cleans."
     priceRange="$75"
     icon={AppWindow}
     includes={[
@@ -16,20 +16,20 @@ const WindowCleaning = () => (
       "Interior cleaning available as add-on",
     ]}
     benefits={[
-      "More natural light — clean windows let in measurably more light, improving how every room feels.",
-      "Better curb appeal — grimy windows are one of the most visible signs of deferred maintenance.",
-      "Extends window life — mineral deposits and oxidation etch into glass over time; regular cleaning prevents permanent damage.",
-      "Spot window damage early — we'll flag any cracked seals, broken frames, or failing weather stripping we notice.",
-      "Safe access — we handle upper-floor windows safely so you don't have to.",
+      "More natural light. Clean windows let in noticeably more light and make rooms feel bigger.",
+      "Better curb appeal. Grimy windows are one of the first things people notice.",
+      "Extends window life. Mineral deposits etch into glass over time. Regular cleaning prevents permanent damage.",
+      "Spot window damage early. We'll flag any cracked seals, broken frames, or failing weather stripping we notice.",
+      "Safe access. We handle upper-floor windows so you don't have to.",
     ]}
     faqs={[
       {
         q: "Do you clean interior windows too?",
-        a: "Yes — interior cleaning is available as an add-on. Just let us know when you request a quote.",
+        a: "Yes, interior cleaning is available as an add-on. Just let us know when you request a quote.",
       },
       {
         q: "How often should I have my windows cleaned?",
-        a: "Most homeowners do it once or twice a year. Spring and fall are popular — after pollen season and before winter.",
+        a: "Most homeowners do it once or twice a year. Spring and fall are popular, after pollen season and before winter.",
       },
       {
         q: "What about hard water stains?",

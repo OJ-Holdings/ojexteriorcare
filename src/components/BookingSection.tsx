@@ -61,7 +61,7 @@ const BookingSection = () => {
             <a href="tel:+12623517796" className="text-ember font-semibold hover:underline underline-offset-4">
               (262) 351-7796
             </a>{" "}
-            — or{" "}
+            or{" "}
             <a href="#contact" className="text-ember font-semibold hover:underline underline-offset-4">
               fill out the form below
             </a>

@@ -5,7 +5,7 @@ const DrivewayPressureWashing = () => (
   <ServicePage
     title="Driveway Pressure Washing"
     tagline="Remove years of dirt, oil, tire marks, and discoloration from your driveway in a single visit."
-    description="Your driveway is one of the first things people see when they pull up to your home. Over time it collects grime, oil drips, algae, and weather staining that makes even a well-maintained property look neglected. Our commercial-grade pressure washers cut through buildup that a garden hose never could — restoring the original color and texture of concrete, asphalt, or paver surfaces in hours."
+    description="Your driveway is one of the first things people see when they pull up to your home. Over time it collects grime, oil drips, algae, and weather staining that makes even a well-kept property look rough. Our pressure washers cut through buildup that a garden hose never could, restoring the color and texture of concrete, asphalt, or paver surfaces in a few hours."
     priceRange="$149"
     icon={Car}
     includes={[
@@ -16,12 +16,12 @@ const DrivewayPressureWashing = () => (
       "Oil stain treatment available as add-on ($50–$100)",
     ]}
     benefits={[
-      "Instantly improves curb appeal — the single fastest way to make your home look better from the street.",
-      "Prevents surface damage — dirt and algae trapped in concrete accelerates cracking and deterioration.",
-      "Safer surfaces — algae and mold buildup creates slippery spots on your driveway and approach.",
-      "Protects property value — clean exteriors directly impact perceived home value.",
-      "Fast results — most driveways are done in under 2 hours with no disruption to your day.",
-      "Seasonal maintenance — one clean per year keeps buildup from becoming a restoration project.",
+      "Instantly improves curb appeal. It's the single fastest way to make your home look better from the street.",
+      "Prevents surface damage. Dirt and algae trapped in concrete speeds up cracking over time.",
+      "Safer to walk on. Algae and mold make surfaces slippery, especially when wet.",
+      "Protects your home's value. A clean driveway is one of the easiest wins for your property.",
+      "Fast turnaround. Most driveways are done in under 2 hours.",
+      "Easier to maintain. One clean a year keeps buildup from turning into a bigger job.",
     ]}
     faqs={[
       {
@@ -30,7 +30,7 @@ const DrivewayPressureWashing = () => (
       },
       {
         q: "Can you remove oil stains?",
-        a: "Yes — we offer oil stain treatment as part of the job or as a standalone service. Most stains lift significantly; severe or very old stains may require a second treatment.",
+        a: "Yes, we offer oil stain treatment as part of the job or as a standalone service. Most stains lift significantly; severe or very old stains may need a second pass.",
       },
       {
         q: "How long does it take?",

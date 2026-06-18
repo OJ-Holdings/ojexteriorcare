@@ -72,7 +72,7 @@ const OurWork = () => {
           >
             <div className="glass rounded-full px-4 py-2 flex items-center gap-2.5 w-fit mb-8">
               <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone/90">
-                The Portfolio — 2025/26
+                The Portfolio, 2025/26
               </span>
             </div>
             <h1 className="font-display font-semibold text-5xl md:text-7xl leading-[1.0] tracking-[-0.04em] text-bone mb-6 max-w-4xl">
@@ -175,7 +175,7 @@ const OurWork = () => {
                 Want results like these at{" "}
                 <span className="accent-serif text-ember-gradient">your home?</span>
               </h2>
-              <p className="text-bone-dim">Free, no-pressure quotes — usually same day.</p>
+              <p className="text-bone-dim">Free, no-pressure quotes. Usually same day.</p>
             </div>
             <div className="relative flex flex-wrap gap-3 shrink-0">
               <a

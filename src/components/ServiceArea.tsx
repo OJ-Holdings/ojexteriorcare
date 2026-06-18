@@ -39,8 +39,8 @@ const ServiceArea = () => {
             </h2>
             <p className="text-bone-dim leading-relaxed mb-8 max-w-md">
               Based in Kenosha, we serve homeowners across southeast Wisconsin and
-              the northern Illinois border. Don&rsquo;t see your city? Just ask — we
-              may still cover you.
+              the northern Illinois border. Don&rsquo;t see your city? Just ask.
+              We may still cover you.
             </p>
 
             <div className="surface rounded-2xl p-7">
@@ -48,7 +48,7 @@ const ServiceArea = () => {
                 Not sure if we cover your area?
               </p>
               <p className="text-bone-dim text-sm mb-6">
-                Reach out and we&rsquo;ll let you know — usually within the hour.
+                Reach out and we&rsquo;ll let you know. Usually within the hour.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a

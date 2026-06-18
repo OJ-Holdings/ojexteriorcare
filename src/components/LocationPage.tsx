@@ -151,7 +151,7 @@ const LocationPage = ({
               and they deliver a quality product at a reasonable price.&rdquo;
             </blockquote>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-bone-dim">
-              — Andrew Capobianco, {city}
+              Andrew Capobianco, {city}
             </p>
           </motion.div>
         </div>

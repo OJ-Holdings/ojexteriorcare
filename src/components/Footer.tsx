@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="border-b border-bone/10 pb-10 md:pb-14 mb-12">
           <div className="flex items-center gap-4 mb-8">
             <img src={logo} alt="" className="h-12 w-auto" aria-hidden />
-            <span className="eyebrow">Kenosha, Wisconsin — Est. 2025</span>
+            <span className="eyebrow">Kenosha, Wisconsin · Est. 2025</span>
           </div>
           <h2 className="font-display font-semibold text-[9.5vw] lg:text-[6.8rem] leading-[0.95] tracking-[-0.04em] text-bone select-none">
             OJ Exterior{" "}
