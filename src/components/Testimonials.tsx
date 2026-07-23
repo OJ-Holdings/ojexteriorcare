@@ -3,6 +3,48 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
+    name: "Amy Adamson",
+    text: "OJ Exterior Care is recommended 100%! We had the exterior windows of our home washed, as well as the siding on our addition. The staff was completely professional and did amazing work! What more can you ask? :)",
+    rating: 5,
+    when: "July 2026",
+  },
+  {
+    name: "Richard Green",
+    text: "These two gentlemen were professional from the start. Not pushy like some of the other people coming to our door. Explained what they saw as the problem, and what they could do to fix it. They gave me a fair price, and I scheduled for them to come the next morning. They texted us before arriving, and when they arrived, they were efficient, and did a great job. I would definitely use them for other jobs around the house and recommend them to anyone who asked me.",
+    rating: 5,
+    when: "July 2026",
+  },
+  {
+    name: "Greg Heffley",
+    text: "OJ Exterior Care did an amazing job on our house! They were on time, professional, and took the time to explain the whole soft washing process. Our siding looks brand new, and they were careful around all of our landscaping. The price was fair, and the results exceeded our expectations. We'll definitely be using them again and recommending them to our neighbors!",
+    rating: 5,
+    when: "July 2026",
+  },
+  {
+    name: "Daisy Genz",
+    text: "We had a great experience using OJ Exterior Care to clean our exterior windows, walkways, and front porch steps. Their communication was excellent from start to finish, and the quality of their work was outstanding. Everything looks so much cleaner and refreshed. I would definitely recommend them!",
+    rating: 5,
+    when: "July 2026",
+  },
+  {
+    name: "Karla Piehl",
+    text: "We had our house power washed and our windows cleaned. They were fast and efficient and did a great job in a small amount of time. They were also very friendly and courteous.",
+    rating: 5,
+    when: "July 2026",
+  },
+  {
+    name: "Michele Young",
+    text: "Thank you to Oscar and Jacob for job well done on power washing our house. Looks great!",
+    rating: 5,
+    when: "June 2026",
+  },
+  {
+    name: "Chris Statema",
+    text: "This is the first time I had my house and driveway power washed. Extremely happy with the results. They even washed my garbage bins!",
+    rating: 5,
+    when: "June 2026",
+  },
+  {
     name: "Andrew Capobianco",
     text: "I highly recommend OJ Exterior Care. They did an extraordinary job on my back patio and my side walkway. Both look cleaner and brighter than they ever have. These are hard working young men and they deliver a quality product at a reasonable price.",
     rating: 5,
@@ -41,8 +83,9 @@ const testimonials = [
 ];
 
 // Duplicate for seamless loop
-const row1 = [...testimonials.slice(0, 3), ...testimonials.slice(0, 3)];
-const row2 = [...testimonials.slice(3), ...testimonials.slice(3)];
+const half = Math.ceil(testimonials.length / 2);
+const row1 = [...testimonials.slice(0, half), ...testimonials.slice(0, half)];
+const row2 = [...testimonials.slice(half), ...testimonials.slice(half)];
 
 const TestimonialCard = ({ t }: { t: typeof testimonials[0] }) => (
   <div className="relative flex-shrink-0 w-[340px] surface rounded-2xl p-7 mx-2.5">

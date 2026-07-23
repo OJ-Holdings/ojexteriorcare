@@ -212,7 +212,7 @@ const Hero = () => {
           transition={{ duration: 0.55, delay: 1 }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6 max-w-2xl"
         >
-          <Stat value={23} suffix="+" label="Jobs Completed" active={statsActive} delay={0} />
+          <Stat value={75} suffix="+" label="Jobs Completed" active={statsActive} delay={0} />
           <Stat value={5} suffix=".0" label="Google Rating" active={statsActive} delay={150} />
           <Stat value={100} suffix="%" label="5-Star Reviews" active={statsActive} delay={300} />
           <Stat value={24} suffix="hr" label="Quote Turnaround" active={statsActive} delay={450} />

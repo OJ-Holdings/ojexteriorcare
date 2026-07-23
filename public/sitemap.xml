@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ojexteriorcare.lovable.app/</loc>
+    <loc>https://ojexteriorcare.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ojexteriorcare.lovable.app/about</loc>
+    <loc>https://ojexteriorcare.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ojexteriorcare.lovable.app/our-work</loc>
+    <loc>https://ojexteriorcare.com/our-work</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
