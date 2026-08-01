@@ -198,9 +198,9 @@ const pairs: SliderProps[] = [
     demo: true,
   },
   {
-    beforeSrc: patioBefore,
-    afterSrc: patioAfter,
-    label: "Patio restoration, Kenosha, WI",
+    beforeSrc: deckBefore,
+    afterSrc: deckAfter,
+    label: "Deck cleaning, Kenosha, WI",
   },
   {
     beforeSrc: sidingBefore,
