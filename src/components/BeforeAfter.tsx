@@ -190,15 +190,15 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, label, demo = false }: SliderP
 
 const pairs: SliderProps[] = [
   {
-    beforeSrc: beforeAfter2, // TODO: swap for actual before photo
-    afterSrc: beforeAfter1,
-    label: "Patio restoration — Kenosha, WI",
+    beforeSrc: drivewayBefore,
+    afterSrc: drivewayAfter,
+    label: "Driveway cleaning, Kenosha, WI",
     demo: true,
   },
   {
-    beforeSrc: beforeAfter1, // TODO: swap for actual before photo
-    afterSrc: beforeAfter2,
-    label: "Driveway oil stain removal",
+    beforeSrc: patioBefore,
+    afterSrc: patioAfter,
+    label: "Patio restoration, Kenosha, WI",
   },
 ];
 
