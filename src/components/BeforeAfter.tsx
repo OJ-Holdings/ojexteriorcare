@@ -17,6 +17,8 @@ import deckBefore from "@/assets/work/deck-before.jpg";
 import deckAfter from "@/assets/work/deck-after.jpg";
 import oilBefore from "@/assets/work/oil-before.jpg";
 import oilAfter from "@/assets/work/oil-after.jpg";
+import sidingBefore from "@/assets/work/siding-before.png";
+import sidingAfter from "@/assets/work/siding-after.png";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ojexteriorcare/";
 const TIKTOK_URL = "https://www.tiktok.com/@oj.exterior.care";
@@ -200,6 +202,11 @@ const pairs: SliderProps[] = [
     afterSrc: patioAfter,
     label: "Patio restoration, Kenosha, WI",
   },
+  {
+    beforeSrc: sidingBefore,
+    afterSrc: sidingAfter,
+    label: "Siding wash, Kenosha, WI",
+  },
 ];
 
 // ─── Hover-reveal job grid ───────────────────────────────────────
@@ -287,7 +294,7 @@ const BeforeAfter = () => {
         </motion.div>
 
         {/* Sliders */}
-        <div className="grid md:grid-cols-2 gap-10 md:gap-12 mb-16 md:mb-20">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-16 md:mb-20">
           {pairs.map((pair) => (
             <BeforeAfterSlider key={pair.label} {...pair} />
           ))}
