@@ -48,7 +48,7 @@ const ContactForm = () => {
         const { data: fnData, error: fnError } = await supabase.functions.invoke("send-transactional-email", {
           body: {
             templateName: "quote-request-notification",
-            recipientEmail: "superbassoof@gmail.com",
+            recipientEmail: "ojexteriorcare@gmail.com",
             idempotencyKey: `quote-notify-${id}`,
             templateData: {
               name: formData.name,
