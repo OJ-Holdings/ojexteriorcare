@@ -242,6 +242,20 @@ const ContactForm = () => {
                   )}
                   {loading ? "Submitting..." : "Submit Quote Request"}
                 </button>
+
+                <p className="text-bone-dim text-xs leading-relaxed text-center">
+                  By submitting, you agree to receive text messages from OJ Exterior Care about
+                  your quote. Msg &amp; data rates may apply. Msg frequency varies. Consent is not
+                  a condition of purchase. Reply STOP to opt out, HELP for help. See our{" "}
+                  <a href="/privacy-policy" className="text-ember hover:text-ember-bright underline underline-offset-2">
+                    Privacy Policy
+                  </a>{" "}
+                  and{" "}
+                  <a href="/terms-of-service" className="text-ember hover:text-ember-bright underline underline-offset-2">
+                    Terms of Service
+                  </a>
+                  .
+                </p>
               </div>
             </motion.form>
           )}
