@@ -113,6 +113,20 @@ const Footer = () => {
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone-dim">
             © {new Date().getFullYear()} OJ Exterior Care. All rights reserved.
           </p>
+          <div className="flex items-center gap-5">
+            <a
+              href="/privacy-policy"
+              className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone-dim hover:text-ember transition-colors duration-200"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms-of-service"
+              className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone-dim hover:text-ember transition-colors duration-200"
+            >
+              Terms of Service
+            </a>
+          </div>
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone-dim">
             Built &amp; operated in Kenosha, WI <span className="text-ember">✦</span>
           </p>

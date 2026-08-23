@@ -11,6 +11,8 @@ import Index from "./pages/Index.tsx";
 import Admin from "./pages/Admin.tsx";
 import OurWork from "./pages/OurWork.tsx";
 import About from "./pages/About.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
+import TermsOfService from "./pages/TermsOfService.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 // Location pages
@@ -39,6 +41,8 @@ const App = () => (
           <Route path="/admin" element={<Admin />} />
           <Route path="/our-work" element={<OurWork />} />
           <Route path="/about" element={<About />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
 
           {/* Location landing pages */}
           <Route path="/pressure-washing-kenosha" element={<Kenosha />} />
