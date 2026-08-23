@@ -12,6 +12,7 @@ const labelClass = "font-mono text-[10px] uppercase tracking-[0.2em] text-bone-d
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -229,6 +230,20 @@ const ContactForm = () => {
                     className={`${inputClass} resize-none`}
                   />
                 </div>
+
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={smsConsent}
+                    onChange={(e) => setSmsConsent(e.target.checked)}
+                    className="mt-0.5 w-4 h-4 shrink-0 rounded border-bone/25 bg-carbon text-ember accent-ember focus:outline-none focus:ring-2 focus:ring-ember/20"
+                  />
+                  <span className="text-bone-dim text-xs leading-relaxed">
+                    I consent to receive transactional messages from OJ Exterior Care at the phone
+                    number provided. Message frequency varies. Message &amp; data rates may apply.
+                    Reply HELP for help or STOP to opt out.
+                  </span>
+                </label>
 
                 <button
                   type="submit"
