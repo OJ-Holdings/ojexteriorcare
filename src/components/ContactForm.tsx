@@ -40,6 +40,7 @@ const ContactForm = () => {
         address: formData.address || null,
         service_needed: formData.service_needed || null,
         description: formData.description || null,
+        sms_consent: smsConsent,
       });
 
       if (error) throw error;
@@ -58,6 +59,7 @@ const ContactForm = () => {
               address: formData.address || "Not provided",
               service: formData.service_needed || "Not specified",
               description: formData.description || "No details provided",
+              smsConsent: smsConsent ? "Yes" : "No",
             },
           },
         });
@@ -239,9 +241,10 @@ const ContactForm = () => {
                     className="mt-0.5 w-4 h-4 shrink-0 rounded border-bone/25 bg-carbon text-ember accent-ember focus:outline-none focus:ring-2 focus:ring-ember/20"
                   />
                   <span className="text-bone-dim text-xs leading-relaxed">
-                    I consent to receive transactional messages from OJ Exterior Care at the phone
-                    number provided. Message frequency varies. Message &amp; data rates may apply.
-                    Reply HELP for help or STOP to opt out.
+                    I consent to receive appointment confirmations, quote follow-ups, and service
+                    reminders from OJ Exterior Care at the phone number provided. Message frequency
+                    varies. Message &amp; data rates may apply. Reply HELP for help or STOP to opt
+                    out.
                   </span>
                 </label>
 

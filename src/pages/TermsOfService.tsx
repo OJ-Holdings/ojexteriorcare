@@ -31,6 +31,11 @@ const TermsOfService = () => {
             agree to these Terms.
           </p>
 
+          <h2 className={h2}>Eligibility</h2>
+          <p className={p}>
+            Our Site and services are intended for users who are 18 years of age or older.
+          </p>
+
           <h2 className={h2}>Our Services</h2>
           <p className={p}>
             OJ Exterior Care provides residential exterior cleaning services, including but not
@@ -65,7 +70,9 @@ const TermsOfService = () => {
           <p className={p}>
             By submitting your phone number through our Site, chat widget, or contact form, you
             consent to be contacted by call or text regarding your inquiry or service. Message and
-            data rates may apply, and consent is not a condition of purchase. See our{" "}
+            data rates may apply, and consent is not a condition of purchase. Reply STOP at any
+            time to opt out of SMS messages. Carriers are not liable for delayed or undelivered
+            messages. See our{" "}
             <a href="/privacy-policy" className="text-ember hover:text-ember-bright">
               Privacy Policy
             </a>{" "}
