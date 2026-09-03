@@ -9,7 +9,7 @@ const services = [
     icon: AppWindow,
     title: "Storefront Window Cleaning",
     description:
-      "Interior and exterior glass, streak-free. Our flagship commercial service — available as a one-time clean or a recurring plan.",
+      "Interior and exterior glass, streak-free. Our flagship commercial service, available as a one-time clean or a recurring plan.",
     tag: "Recurring available",
   },
   {
@@ -30,13 +30,13 @@ const services = [
 
 const trust = [
   { icon: ShieldCheck, label: "Insured", detail: "$1M general liability. COI available on request." },
-  { icon: Clock, label: "Flexible scheduling", detail: "Early morning, evening, or closed hours — your call." },
+  { icon: Clock, label: "Flexible scheduling", detail: "Early morning, evening, or closed hours. Your call." },
   { icon: Repeat, label: "Recurring plans", detail: "Monthly or quarterly service, no long-term contract lock-in." },
 ];
 
 const steps = [
   { t: "Quick call or site visit", d: "Tell us about the property so we can scope the job accurately." },
-  { t: "Custom quote", d: "Priced on actual scope and access — no generic rate card for commercial work." },
+  { t: "Custom quote", d: "Priced on actual scope and access, not a generic rate card for commercial work." },
   { t: "Scheduled around you", d: "We work around your business hours so cleaning never disrupts customers." },
 ];
 
@@ -59,7 +59,7 @@ const Commercial = () => {
             <div className="glass rounded-full px-4 py-2 flex items-center gap-2.5 w-fit mb-8">
               <ShieldCheck className="w-3.5 h-3.5 text-ember" strokeWidth={1.5} />
               <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone/90">
-                Commercial — Kenosha, WI
+                Commercial &middot; Kenosha, WI
               </span>
             </div>
             <h1 className="font-display font-semibold text-5xl md:text-7xl leading-[1.0] tracking-[-0.04em] text-bone mb-6 max-w-4xl">
@@ -68,7 +68,7 @@ const Commercial = () => {
             </h1>
             <p className="text-bone-dim text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
               Recurring window cleaning and storefront exterior care for small businesses,
-              retail, and offices — scheduled around your hours, never your customers.
+              retail, and offices, scheduled around your hours, never your customers.
             </p>
             <div className="flex flex-wrap gap-4">
               <a

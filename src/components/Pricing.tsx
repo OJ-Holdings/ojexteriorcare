@@ -133,7 +133,7 @@ const Pricing = () => {
           </div>
         </motion.div>
 
-        {/* How pricing works — compact strip */}
+        {/* How pricing works - compact strip */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

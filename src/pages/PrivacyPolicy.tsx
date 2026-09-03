@@ -75,9 +75,9 @@ const PrivacyPolicy = () => {
             Information you submit may be processed by:
           </p>
           <ul className={ul}>
-            <li>Supabase — secure storage of quote requests and related data</li>
-            <li>Resend — delivery of email notifications</li>
-            <li>GoHighLevel / LeadConnector — the website chat widget and SMS/call communications</li>
+            <li>Supabase: secure storage of quote requests and related data</li>
+            <li>Resend: delivery of email notifications</li>
+            <li>GoHighLevel / LeadConnector: the website chat widget and SMS/call communications</li>
           </ul>
           <p className={p}>
             These providers only receive the information necessary to perform their function and

@@ -6,7 +6,7 @@ import { MoveHorizontal } from "lucide-react";
 import beforeAfter1 from "@/assets/before-after-1.jpg";
 import beforeAfter2 from "@/assets/before-after-2.jpg";
 
-// Real job photos — before & after pairs (hover grid)
+// Real job photos - before & after pairs (hover grid)
 import drivewayBefore from "@/assets/work/driveway-before.jpg";
 import drivewayAfter from "@/assets/work/driveway-after.jpg";
 import patioBefore from "@/assets/work/patio-before.jpg";
@@ -135,7 +135,7 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, label, demo = false }: SliderP
       >
         <img
           src={afterSrc}
-          alt={`After — ${label}`}
+          alt={`After: ${label}`}
           draggable={false}
           width={1280}
           height={768}
@@ -148,7 +148,7 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, label, demo = false }: SliderP
         >
           <img
             src={beforeSrc}
-            alt={`Before — ${label}`}
+            alt={`Before: ${label}`}
             draggable={false}
             width={1280}
             height={768}

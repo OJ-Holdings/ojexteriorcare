@@ -115,7 +115,7 @@ const CommercialContactForm = () => {
             </h2>
             <p className="text-bone-dim leading-relaxed max-w-xl mx-auto">
               Tell us about your property and we&rsquo;ll follow up to scope the job and put
-              together a custom quote — one-time or recurring.
+              together a custom quote, one-time or recurring.
             </p>
           </motion.div>
 
@@ -149,7 +149,7 @@ const CommercialContactForm = () => {
               <div className="space-y-7">
                 <div className="grid sm:grid-cols-2 gap-x-6 gap-y-7">
                   <div>
-                    <label htmlFor="ccf-business" className={labelClass}>Business Name — required</label>
+                    <label htmlFor="ccf-business" className={labelClass}>Business Name (required)</label>
                     <input
                       id="ccf-business"
                       type="text"
@@ -162,7 +162,7 @@ const CommercialContactForm = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="ccf-name" className={labelClass}>Contact Name — required</label>
+                    <label htmlFor="ccf-name" className={labelClass}>Contact Name (required)</label>
                     <input
                       id="ccf-name"
                       type="text"
@@ -179,7 +179,7 @@ const CommercialContactForm = () => {
 
                 <div className="grid sm:grid-cols-2 gap-x-6 gap-y-7">
                   <div>
-                    <label htmlFor="ccf-phone" className={labelClass}>Phone — required</label>
+                    <label htmlFor="ccf-phone" className={labelClass}>Phone (required)</label>
                     <input
                       id="ccf-phone"
                       type="tel"
@@ -208,7 +208,7 @@ const CommercialContactForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="ccf-address" className={labelClass}>Business Address — required</label>
+                  <label htmlFor="ccf-address" className={labelClass}>Business Address (required)</label>
                   <input
                     id="ccf-address"
                     type="text"

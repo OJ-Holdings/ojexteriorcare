@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-// Real job photos — before & after pairs
+// Real job photos - before & after pairs
 import drivewayBefore from "@/assets/work/driveway-before.jpg";
 import drivewayAfter from "@/assets/work/driveway-after.jpg";
 import patioBefore from "@/assets/work/patio-before.jpg";

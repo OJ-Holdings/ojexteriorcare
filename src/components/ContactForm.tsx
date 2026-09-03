@@ -139,7 +139,7 @@ const ContactForm = () => {
               <div className="space-y-7">
                 <div className="grid sm:grid-cols-2 gap-x-6 gap-y-7">
                   <div>
-                    <label htmlFor="cf-name" className={labelClass}>Name — required</label>
+                    <label htmlFor="cf-name" className={labelClass}>Name (required)</label>
                     <input
                       id="cf-name"
                       type="text"
@@ -153,7 +153,7 @@ const ContactForm = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="cf-phone" className={labelClass}>Phone — required</label>
+                    <label htmlFor="cf-phone" className={labelClass}>Phone (required)</label>
                     <input
                       id="cf-phone"
                       type="tel"

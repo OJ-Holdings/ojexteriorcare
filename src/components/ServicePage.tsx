@@ -44,7 +44,7 @@ const ServicePage = ({
             <div className="glass rounded-full px-4 py-2 flex items-center gap-2.5 w-fit mb-8">
               <Icon className="w-3.5 h-3.5 text-ember" strokeWidth={1.5} />
               <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone/90">
-                Service — Kenosha, WI
+                Service &middot; Kenosha, WI
               </span>
             </div>
             <h1 className="font-display font-semibold text-5xl md:text-7xl leading-[1.0] tracking-[-0.04em] text-bone mb-6 max-w-4xl">

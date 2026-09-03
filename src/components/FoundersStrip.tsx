@@ -50,7 +50,7 @@ const FoundersStrip = () => {
               your job are the people who show up and do it.
             </p>
             <p className="font-serif italic text-bone/80 text-lg mb-8">
-              &ldquo;These are hard working young men&rdquo; — every review, basically.
+              &ldquo;These are hard working young men,&rdquo; basically every review.
             </p>
             <a
               href="/about"

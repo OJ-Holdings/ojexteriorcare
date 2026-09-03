@@ -21,11 +21,11 @@ const Racine = () => (
     state="WI"
     headline="Pressure Washing &amp; Exterior Cleaning in"
     subheadline="OJ Exterior Care serves Racine and the surrounding area with professional exterior cleaning. Fast quotes, reliable scheduling, and results that speak for themselves."
-    intro="From downtown Racine driveways to lakefront patios in Wind Point, we've seen what Wisconsin winters and summer storms do to exterior surfaces. Our team brings commercial-grade equipment and genuine attention to detail — you'll notice the difference before we even pack up."
+    intro="From downtown Racine driveways to lakefront patios in Wind Point, we've seen what Wisconsin winters and summer storms do to exterior surfaces. Our team brings commercial-grade equipment and genuine attention to detail. You'll notice the difference before we even pack up."
     services={services}
     neighborhoods={neighborhoods}
     metaTitle="Pressure Washing Racine, WI | OJ Exterior Care"
-    metaDescription="Professional pressure washing in Racine, WI. Driveway, patio, window, and gutter cleaning by OJ Exterior Care. Free quotes — call (262) 351-7796."
+    metaDescription="Professional pressure washing in Racine, WI. Driveway, patio, window, and gutter cleaning by OJ Exterior Care. Free quotes, call (262) 351-7796."
   />
 );
 

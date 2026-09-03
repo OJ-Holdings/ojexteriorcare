@@ -32,7 +32,7 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-[76px]">
-        <a href="/" className="flex items-center gap-3 select-none" aria-label="OJ Exterior Care — home">
+        <a href="/" className="flex items-center gap-3 select-none" aria-label="OJ Exterior Care home">
           <img src={logo} alt="OJ Exterior Care logo" className="h-10 md:h-12 w-auto" />
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-display font-semibold text-[15px] tracking-tight text-bone">
