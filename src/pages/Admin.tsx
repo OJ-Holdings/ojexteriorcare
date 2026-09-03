@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, LogIn, LogOut, RefreshCw, Phone, Mail, MapPin, Clock, Wrench, FileText } from "lucide-react";
+import { ArrowLeft, LogIn, LogOut, RefreshCw, Phone, Mail, MapPin, Clock, Wrench, FileText, Building2, Droplets, Repeat } from "lucide-react";
 
 interface QuoteRequest {
   id: string;
@@ -11,6 +11,10 @@ interface QuoteRequest {
   service_needed: string | null;
   description: string | null;
   created_at: string;
+  property_type: string;
+  business_name: string | null;
+  water_access: boolean | null;
+  recurring_interest: boolean | null;
 }
 
 const Admin = () => {
@@ -159,14 +163,24 @@ const Admin = () => {
             {quotes.map((q) => (
               <div key={q.id} className="bg-card border border-border rounded-xl p-5 space-y-3">
                 <div className="flex items-start justify-between">
-                  <h3 className="font-semibold text-lg">{q.name}</h3>
-                  <span className="text-xs text-muted-foreground flex items-center gap-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="font-semibold text-lg">{q.business_name || q.name}</h3>
+                    {q.property_type === "commercial" && (
+                      <span className="flex items-center gap-1 text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                        <Building2 className="w-3 h-3" /> Commercial
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-xs text-muted-foreground flex items-center gap-1 shrink-0">
                     <Clock className="w-3 h-3" />
                     {new Date(q.created_at).toLocaleDateString("en-US", {
                       month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit",
                     })}
                   </span>
                 </div>
+                {q.business_name && (
+                  <p className="text-sm text-muted-foreground -mt-2">Contact: {q.name}</p>
+                )}
                 <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5 text-primary" />
@@ -189,6 +203,18 @@ const Admin = () => {
                   <div className="flex items-center gap-1.5 text-sm">
                     <Wrench className="w-3.5 h-3.5 text-primary" />
                     <span className="font-medium">{q.service_needed}</span>
+                  </div>
+                )}
+                {q.property_type === "commercial" && (
+                  <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1.5">
+                      <Droplets className="w-3.5 h-3.5 text-primary" />
+                      Water access: {q.water_access === true ? "Yes" : q.water_access === false ? "No" : "Not sure"}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Repeat className="w-3.5 h-3.5 text-primary" />
+                      Recurring interest: {q.recurring_interest ? "Yes" : "No"}
+                    </span>
                   </div>
                 )}
                 {q.description && (

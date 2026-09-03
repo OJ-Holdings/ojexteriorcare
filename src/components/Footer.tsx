@@ -63,6 +63,14 @@ const Footer = () => {
           </div>
 
           <div>
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone-dim mb-5">Commercial</h4>
+            <ul className="space-y-2.5 mb-7">
+              <li>
+                <a href="/commercial" className="text-sm text-bone/70 hover:text-ember transition-colors duration-200">
+                  Storefront &amp; Office Care
+                </a>
+              </li>
+            </ul>
             <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone-dim mb-5">Service Areas</h4>
             <ul className="space-y-2.5">
               {areas.map((a) => (
