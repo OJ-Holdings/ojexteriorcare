@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { ArrowRight, Phone, MapPin, Star, Check } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -31,7 +32,22 @@ const LocationPage = ({
   intro,
   services,
   neighborhoods = [],
+  metaTitle,
+  metaDescription,
 }: LocationPageProps) => {
+  // Per-route title + description (index.html holds the site-wide defaults)
+  useEffect(() => {
+    const prevTitle = document.title;
+    const descTag = document.querySelector('meta[name="description"]');
+    const prevDesc = descTag?.getAttribute("content");
+    document.title = metaTitle;
+    descTag?.setAttribute("content", metaDescription);
+    return () => {
+      document.title = prevTitle;
+      if (prevDesc != null) descTag?.setAttribute("content", prevDesc);
+    };
+  }, [metaTitle, metaDescription]);
+
   return (
     <div className="min-h-screen bg-carbon">
       <div className="fixed top-0 inset-x-0 z-50">
@@ -67,10 +83,10 @@ const LocationPage = ({
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
-                href="tel:+12623517796"
+                href="tel:+12625153083"
                 className="glass text-bone px-8 py-4 rounded-full font-display font-medium text-base flex items-center gap-2.5 hover:border-bone/25 transition-colors duration-200"
               >
-                <Phone className="w-4 h-4 text-ember" /> (262) 351-7796
+                <Phone className="w-4 h-4 text-ember" /> (262) 515-3083
               </a>
             </div>
           </motion.div>

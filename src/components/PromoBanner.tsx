@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
-const BANNER_KEY = "oj_promo_dismissed_v1";
+// The fall promo runs through Oct 31, 2026 (visitor's local time), then the banner
+// switches to spring booking. Each message has its own dismiss key.
+const PROMO_ENDS = new Date(2026, 10, 1); // Nov 1, 2026, 00:00 local
 
 const PromoBanner = () => {
   const [visible, setVisible] = useState(false);
+  const promoActive = new Date() < PROMO_ENDS;
+  const bannerKey = promoActive ? "oj_promo_dismissed_fall26" : "oj_promo_dismissed_spring27";
 
   useEffect(() => {
-    const dismissed = sessionStorage.getItem(BANNER_KEY);
+    const dismissed = sessionStorage.getItem(bannerKey);
     if (!dismissed) setVisible(true);
-  }, []);
+  }, [bannerKey]);
 
   const dismiss = () => {
-    sessionStorage.setItem(BANNER_KEY, "1");
+    sessionStorage.setItem(bannerKey, "1");
     setVisible(false);
   };
 
@@ -22,10 +26,12 @@ const PromoBanner = () => {
     <div className="relative z-[60] bg-ember text-carbon">
       <div className="container flex items-center justify-center gap-3 py-2 text-center pr-10">
         <span className="hidden sm:inline font-mono font-semibold text-[10px] uppercase tracking-[0.2em] border border-carbon/30 rounded-full px-2.5 py-0.5">
-          Offer
+          {promoActive ? "Offer" : "Booking"}
         </span>
         <p className="font-mono font-medium text-[11px] sm:text-xs uppercase tracking-[0.1em]">
-          Summer special: 10% off your first service.{" "}
+          {promoActive
+            ? "Last chance this season: 10% off any job booked by Oct 31, including spring 2027 dates."
+            : "Now booking spring 2027. Lock in your spot early."}{" "}
           <a href="#contact" className="font-semibold underline underline-offset-4 hover:opacity-75 transition-opacity">
             Book now →
           </a>

@@ -3,22 +3,22 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { MoveHorizontal } from "lucide-react";
 // TODO: Replace beforeSrc values below with actual "before" photos once available.
 // Currently using the two result images as stand-ins for the slider demo.
-import beforeAfter1 from "@/assets/before-after-1.jpg";
-import beforeAfter2 from "@/assets/before-after-2.jpg";
+import beforeAfter1 from "@/assets/before-after-1.webp";
+import beforeAfter2 from "@/assets/before-after-2.webp";
 
 // Real job photos - before & after pairs (hover grid)
-import drivewayBefore from "@/assets/work/driveway-before.jpg";
-import drivewayAfter from "@/assets/work/driveway-after.jpg";
-import patioBefore from "@/assets/work/patio-before.jpg";
-import patioAfter from "@/assets/work/patio-after.jpg";
-import sidewalkBefore from "@/assets/work/sidewalk-before.jpg";
-import sidewalkAfter from "@/assets/work/sidewalk-after.jpg";
-import deckBefore from "@/assets/work/deck-before.jpg";
-import deckAfter from "@/assets/work/deck-after.jpg";
-import oilBefore from "@/assets/work/oil-before.jpg";
-import oilAfter from "@/assets/work/oil-after.jpg";
-import sidingBefore from "@/assets/work/siding-before.png";
-import sidingAfter from "@/assets/work/siding-after.png";
+import drivewayBefore from "@/assets/work/driveway-before.webp";
+import drivewayAfter from "@/assets/work/driveway-after.webp";
+import patioBefore from "@/assets/work/patio-before.webp";
+import patioAfter from "@/assets/work/patio-after.webp";
+import sidewalkBefore from "@/assets/work/sidewalk-before.webp";
+import sidewalkAfter from "@/assets/work/sidewalk-after.webp";
+import deckBefore from "@/assets/work/deck-before.webp";
+import deckAfter from "@/assets/work/deck-after.webp";
+import oilBefore from "@/assets/work/oil-before.webp";
+import oilAfter from "@/assets/work/oil-after.webp";
+import sidingBefore from "@/assets/work/siding-before.webp";
+import sidingAfter from "@/assets/work/siding-after.webp";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ojexteriorcare/";
 const TIKTOK_URL = "https://www.tiktok.com/@oj.exterior.care";
@@ -138,7 +138,9 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, label, demo = false }: SliderP
           alt={`After: ${label}`}
           draggable={false}
           width={1280}
-          height={768}
+          height={800}
+          loading="lazy"
+          decoding="async"
           className="w-full aspect-[16/10] object-cover block pointer-events-none"
         />
 
@@ -151,7 +153,9 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, label, demo = false }: SliderP
             alt={`Before: ${label}`}
             draggable={false}
             width={1280}
-            height={768}
+            height={800}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-carbon/30" />
@@ -235,14 +239,20 @@ const JobCard = ({ job, index }: { job: typeof jobs[0]; index: number }) => {
         <img
           src={job.before}
           alt={`${job.label} before cleaning`}
+          width={800}
+          height={600}
           loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
           style={{ opacity: hovered ? 0 : 1 }}
         />
         <img
           src={job.after}
           alt={`${job.label} after cleaning`}
+          width={800}
+          height={600}
           loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
           style={{ opacity: hovered ? 1 : 0 }}
         />

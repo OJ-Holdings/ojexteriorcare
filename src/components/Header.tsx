@@ -33,13 +33,13 @@ const Header = () => {
     >
       <div className="container flex items-center justify-between h-16 md:h-[76px]">
         <a href="/" className="flex items-center gap-3 select-none" aria-label="OJ Exterior Care home">
-          <img src={logo} alt="OJ Exterior Care logo" className="h-10 md:h-12 w-auto" />
+          <img src={logo} alt="OJ Exterior Care logo" width={256} height={256} className="h-10 md:h-12 w-auto" />
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-display font-semibold text-[15px] tracking-tight text-bone">
               OJ Exterior Care
             </span>
             <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-bone-dim mt-1">
-              Kenosha · Est. 2025
+              Southeast WI · Est. 2025
             </span>
           </span>
         </a>
@@ -58,11 +58,11 @@ const Header = () => {
 
         <div className="hidden lg:flex items-center gap-5">
           <a
-            href="tel:+12623517796"
+            href="tel:+12625153083"
             className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-bone hover:text-ember transition-colors duration-200"
           >
             <Phone className="w-3.5 h-3.5 text-ember" />
-            (262) 351-7796
+            (262) 515-3083
           </a>
           <a
             href="/#contact"

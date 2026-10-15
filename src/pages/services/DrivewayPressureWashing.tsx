@@ -6,7 +6,7 @@ const DrivewayPressureWashing = () => (
     title="Driveway Pressure Washing"
     tagline="Remove years of dirt, oil, tire marks, and discoloration from your driveway in a single visit."
     description="Your driveway is one of the first things people see when they pull up to your home. Over time it collects grime, oil drips, algae, and weather staining that makes even a well-kept property look rough. Our pressure washers cut through buildup that a garden hose never could, restoring the color and texture of concrete, asphalt, or paver surfaces in a few hours."
-    priceRange="$149"
+    priceRange="$50 per car width · $150 minimum per visit"
     icon={Car}
     includes={[
       "Pre-treatment of heavy staining or oil spots",
@@ -26,7 +26,7 @@ const DrivewayPressureWashing = () => (
     faqs={[
       {
         q: "How much does driveway cleaning cost?",
-        a: "Single-car driveways start at $149. Two-car driveways typically run $200–$300. Larger or heavily stained driveways may be higher. Every quote is free.",
+        a: "We charge $50 per car width, with a $150 minimum per visit. Final price can change based on size, condition, and access. Every quote is free.",
       },
       {
         q: "Can you remove oil stains?",

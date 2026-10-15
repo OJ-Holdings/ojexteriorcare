@@ -44,7 +44,7 @@ const ServicePage = ({
             <div className="glass rounded-full px-4 py-2 flex items-center gap-2.5 w-fit mb-8">
               <Icon className="w-3.5 h-3.5 text-ember" strokeWidth={1.5} />
               <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone/90">
-                Service &middot; Kenosha, WI
+                Service &middot; Southeast WI
               </span>
             </div>
             <h1 className="font-display font-semibold text-5xl md:text-7xl leading-[1.0] tracking-[-0.04em] text-bone mb-6 max-w-4xl">
@@ -64,10 +64,10 @@ const ServicePage = ({
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
-                href="tel:+12623517796"
+                href="tel:+12625153083"
                 className="glass text-bone px-8 py-4 rounded-full font-display font-medium text-base flex items-center gap-2.5 hover:border-bone/25 transition-colors duration-200"
               >
-                <Phone className="w-4 h-4 text-ember" /> (262) 351-7796
+                <Phone className="w-4 h-4 text-ember" /> (262) 515-3083
               </a>
             </div>
           </motion.div>

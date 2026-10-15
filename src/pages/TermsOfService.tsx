@@ -22,7 +22,7 @@ const TermsOfService = () => {
           <h1 className="font-display font-semibold text-4xl md:text-6xl leading-[1.02] tracking-[-0.03em] text-bone mb-4">
             Terms of Service
           </h1>
-          <p className="text-bone-dim text-sm mb-12">Last updated: August 2026</p>
+          <p className="text-bone-dim text-sm mb-12">Last updated: October 2026</p>
 
           <p className={p}>
             These Terms of Service ("Terms") govern your use of ojexteriorcare.com (the "Site") and
@@ -39,8 +39,8 @@ const TermsOfService = () => {
           <h2 className={h2}>Our Services</h2>
           <p className={p}>
             OJ Exterior Care provides residential exterior cleaning services, including but not
-            limited to driveway, patio, sidewalk, deck, gutter, and window cleaning, in Kenosha,
-            WI and surrounding areas. Specific service details, availability, and coverage areas
+            limited to house washing and driveway, patio, sidewalk, deck, and window cleaning, in
+            southeast Wisconsin and northern Illinois. Specific service details, availability, and coverage areas
             are described on the Site and may change at any time.
           </p>
 
@@ -121,8 +121,8 @@ const TermsOfService = () => {
               ojexteriorcare@gmail.com
             </a>{" "}
             or{" "}
-            <a href="tel:+12623517796" className="text-ember hover:text-ember-bright">
-              (262) 351-7796
+            <a href="tel:+12625153083" className="text-ember hover:text-ember-bright">
+              (262) 515-3083
             </a>
             .
           </p>

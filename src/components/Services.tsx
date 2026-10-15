@@ -2,13 +2,15 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useRef, useState, useCallback } from "react";
 
-import drivewayAfter from "@/assets/work/driveway-after.jpg";
-import patioAfter from "@/assets/work/patio-after.jpg";
-import sidewalkAfter from "@/assets/work/sidewalk-after.jpg";
-import deckAfter from "@/assets/work/deck-after.jpg";
-import oilAfter from "@/assets/work/oil-after.jpg";
+import sidingAfter from "@/assets/work/siding-after.webp";
+import drivewayAfter from "@/assets/work/driveway-after.webp";
+import patioAfter from "@/assets/work/patio-after.webp";
+import sidewalkAfter from "@/assets/work/sidewalk-after.webp";
+import deckAfter from "@/assets/work/deck-after.webp";
+import oilAfter from "@/assets/work/oil-after.webp";
 
 const services = [
+  { title: "House Washing", description: "Soft wash for siding, trim, and soffits. Lifts dirt, algae, and mildew without blasting your home.", href: "#contact", img: sidingAfter },
   { title: "Driveway Cleaning", description: "Remove years of grime, oil stains, and buildup. Restore curb appeal in hours.", href: "/services/driveway-pressure-washing", img: drivewayAfter },
   { title: "Patio Cleaning", description: "Deep clean that removes dirt, algae, and discoloration from any surface.", href: "/services/patio-cleaning", img: patioAfter },
   { title: "Sidewalk Cleaning", description: "Clean, safe sidewalks that look fresh and well-maintained year-round.", href: "#contact", img: sidewalkAfter },
@@ -16,7 +18,6 @@ const services = [
   { title: "Oil Stain Treatment", description: "Specialized treatment to lift and remove stubborn oil stains from concrete.", href: "#contact", img: oilAfter },
   { title: "Rust Stain Treatment", description: "Expert rust removal from concrete, pavers, and stone surfaces.", href: "#contact", img: oilAfter },
   { title: "Exterior Surface Washing", description: "Comprehensive cleaning for walls, steps, retaining walls, and more.", href: "#contact", img: patioAfter },
-  { title: "Gutter Cleaning", description: "Clear debris and buildup. Protect your home from water damage.", href: "#contact", img: patioAfter },
   { title: "Window Cleaning", description: "Crystal-clear, streak-free windows inside and out. Let the light in.", href: "/services/window-cleaning", img: sidewalkAfter },
 ];
 
@@ -128,7 +129,15 @@ const Services = () => {
             }}
           >
             {previewImg && (
-              <img src={previewImg} alt="" className="w-full h-full object-cover" />
+              <img
+                src={previewImg}
+                alt=""
+                width={300}
+                height={225}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
             )}
           </motion.div>
 
@@ -142,6 +151,14 @@ const Services = () => {
             />
           ))}
         </div>
+
+        <p className="mt-8 text-sm text-bone-dim">
+          Gutters or roof?{" "}
+          <a href="#contact" className="text-ember font-medium hover:underline underline-offset-4">
+            Ask us.
+          </a>{" "}
+          We handle those case by case.
+        </p>
       </div>
     </section>
   );

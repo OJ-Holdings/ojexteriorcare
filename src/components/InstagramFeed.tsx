@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 // Real job photos - before & after pairs
-import drivewayBefore from "@/assets/work/driveway-before.jpg";
-import drivewayAfter from "@/assets/work/driveway-after.jpg";
-import patioBefore from "@/assets/work/patio-before.jpg";
-import patioAfter from "@/assets/work/patio-after.jpg";
-import sidewalkBefore from "@/assets/work/sidewalk-before.jpg";
-import sidewalkAfter from "@/assets/work/sidewalk-after.jpg";
-import deckBefore from "@/assets/work/deck-before.jpg";
-import deckAfter from "@/assets/work/deck-after.jpg";
-import oilBefore from "@/assets/work/oil-before.jpg";
-import oilAfter from "@/assets/work/oil-after.jpg";
+import drivewayBefore from "@/assets/work/driveway-before.webp";
+import drivewayAfter from "@/assets/work/driveway-after.webp";
+import patioBefore from "@/assets/work/patio-before.webp";
+import patioAfter from "@/assets/work/patio-after.webp";
+import sidewalkBefore from "@/assets/work/sidewalk-before.webp";
+import sidewalkAfter from "@/assets/work/sidewalk-after.webp";
+import deckBefore from "@/assets/work/deck-before.webp";
+import deckAfter from "@/assets/work/deck-after.webp";
+import oilBefore from "@/assets/work/oil-before.webp";
+import oilAfter from "@/assets/work/oil-after.webp";
 
 const INSTAGRAM_URL = "https://www.instagram.com/ojexteriorcare/";
 const TIKTOK_URL = "https://www.tiktok.com/@oj.exterior.care";
@@ -54,12 +54,20 @@ const JobCard = ({ job, index }: { job: typeof jobs[0]; index: number }) => {
         <img
           src={job.before}
           alt={`${job.label} before cleaning`}
+          width={800}
+          height={600}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
           style={{ opacity: hovered ? 0 : 1 }}
         />
         <img
           src={job.after}
           alt={`${job.label} after cleaning`}
+          width={800}
+          height={600}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
           style={{ opacity: hovered ? 1 : 0 }}
         />

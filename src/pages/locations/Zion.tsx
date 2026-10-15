@@ -1,17 +1,17 @@
 import LocationPage from "@/components/LocationPage";
 
 const services = [
+  "House Washing",
   "Driveway Pressure Washing",
   "Patio & Deck Cleaning",
   "Sidewalk & Walkway Cleaning",
   "Window Cleaning",
-  "Gutter Cleaning",
   "Oil & Rust Stain Removal",
 ];
 
 const neighborhoods = [
-  "Winthrop Harbor", "Beach Park", "Wadsworth",
-  "North Chicago", "Great Lakes",
+  "Winthrop Harbor", "Waukegan", "Gurnee", "Antioch", "Libertyville",
+  "Lake Forest", "Lake Bluff", "Highland Park", "Glencoe",
 ];
 
 const Zion = () => (
@@ -23,8 +23,8 @@ const Zion = () => (
     intro="Just south of Kenosha, Zion and the surrounding north shore Illinois communities are a natural part of our service area. We make the drive so you get the same quality and reliability as our Wisconsin clients, no upcharge, no hassle. Tell us what needs cleaning and we'll get you a number, fast."
     services={services}
     neighborhoods={neighborhoods}
-    metaTitle="Pressure Washing Zion, IL | OJ Exterior Care"
-    metaDescription="Professional pressure washing in Zion, IL and north shore communities. Driveway, patio & window cleaning by OJ Exterior Care. Free quotes: (262) 351-7796."
+    metaTitle="House Washing & Pressure Washing in Zion, IL | OJ Exterior Care"
+    metaDescription="House washing, pressure washing and window cleaning in Zion, IL and across Lake County. Free quotes: (262) 515-3083."
   />
 );
 

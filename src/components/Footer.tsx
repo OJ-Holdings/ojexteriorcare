@@ -2,15 +2,23 @@ import { Phone, Mail, MessageCircle, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const services = [
+  "House Washing",
   "Driveway Cleaning",
   "Patio Cleaning",
   "Sidewalk Cleaning",
   "Deck Cleaning",
-  "Gutter Cleaning",
   "Window Cleaning",
 ];
 
-const areas = ["Kenosha, WI", "Racine, WI", "Zion, IL", "Pleasant Prairie", "Somers", "Bristol"];
+const areas = [
+  "Kenosha County",
+  "Racine County",
+  "Milwaukee County",
+  "Waukesha County",
+  "Walworth County",
+  "Lake County, IL",
+  "Cook County, IL",
+];
 
 const socials = [
   { label: "Instagram", href: "https://www.instagram.com/ojexteriorcare/" },
@@ -31,8 +39,8 @@ const Footer = () => {
         {/* Giant wordmark */}
         <div className="border-b border-bone/10 pb-10 md:pb-14 mb-12">
           <div className="flex items-center gap-4 mb-8">
-            <img src={logo} alt="" className="h-12 w-auto" aria-hidden />
-            <span className="eyebrow">Kenosha, Wisconsin · Est. 2025</span>
+            <img src={logo} alt="" width={256} height={256} loading="lazy" decoding="async" className="h-12 w-auto" aria-hidden />
+            <span className="eyebrow">Southeast Wisconsin · Est. 2025</span>
           </div>
           <h2 className="font-display font-semibold text-[9.5vw] lg:text-[6.8rem] leading-[0.95] tracking-[-0.04em] text-bone select-none">
             OJ Exterior{" "}
@@ -83,12 +91,12 @@ const Footer = () => {
             <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone-dim mb-5">Contact</h4>
             <ul className="space-y-3">
               <li>
-                <a href="tel:+12623517796" className="flex items-center gap-2.5 text-sm text-bone/70 hover:text-ember transition-colors duration-200">
-                  <Phone className="w-3.5 h-3.5 text-ember" /> (262) 351-7796
+                <a href="tel:+12625153083" className="flex items-center gap-2.5 text-sm text-bone/70 hover:text-ember transition-colors duration-200">
+                  <Phone className="w-3.5 h-3.5 text-ember" /> (262) 515-3083
                 </a>
               </li>
               <li>
-                <a href="sms:+12623517796" className="flex items-center gap-2.5 text-sm text-bone/70 hover:text-ember transition-colors duration-200">
+                <a href="sms:+12625153083" className="flex items-center gap-2.5 text-sm text-bone/70 hover:text-ember transition-colors duration-200">
                   <MessageCircle className="w-3.5 h-3.5 text-ember" /> Text Us
                 </a>
               </li>

@@ -3,18 +3,17 @@ import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-import patioBefore from "@/assets/work/patio-before.jpg";
-import patioAfter from "@/assets/work/patio-after.jpg";
-import oilBefore from "@/assets/work/oil-before.jpg";
-import oilAfter from "@/assets/work/oil-after.jpg";
-import deckBefore from "@/assets/work/deck-before.jpg";
-import deckAfter from "@/assets/work/deck-after.jpg";
-import drivewayWalkwayAsset from "@/assets/uploads/driveway-walkway-before-after.png.asset.json";
-import exposedAggregateAsset from "@/assets/uploads/exposed-aggregate-before-after.png.asset.json";
-import drivewaySpotsAsset from "@/assets/uploads/driveway-spots-before-after.png.asset.json";
-import windowCleaningAsset from "@/assets/uploads/window-cleaning.jpg.asset.json";
+import patioBefore from "@/assets/work/patio-before.webp";
+import patioAfter from "@/assets/work/patio-after.webp";
+import oilBefore from "@/assets/work/oil-before.webp";
+import oilAfter from "@/assets/work/oil-after.webp";
+import deckBefore from "@/assets/work/deck-before.webp";
+import deckAfter from "@/assets/work/deck-after.webp";
+import drivewayWalkway from "@/assets/work/driveway-walkway-before-after.webp";
+import exposedAggregate from "@/assets/work/exposed-aggregate-before-after.webp";
+import drivewaySpots from "@/assets/work/driveway-spots-before-after.webp";
+import windowCleaning from "@/assets/work/window-cleaning.webp";
 
-type AssetPointer = { url: string };
 type Project = {
   label: string;
   before?: string;
@@ -23,30 +22,25 @@ type Project = {
   location: string;
 };
 
-const drivewayWalkwayUrl = (drivewayWalkwayAsset as AssetPointer).url;
-const exposedAggregateUrl = (exposedAggregateAsset as AssetPointer).url;
-const drivewaySpotsUrl = (drivewaySpotsAsset as AssetPointer).url;
-const windowCleaningUrl = (windowCleaningAsset as AssetPointer).url;
-
 const projects: Project[] = [
   {
     label: "Driveway and Walkway Cleaning",
-    full: drivewayWalkwayUrl,
+    full: drivewayWalkway,
     location: "Kenosha, WI",
   },
   {
     label: "Exposed Aggregate Patio Cleaning",
-    full: exposedAggregateUrl,
+    full: exposedAggregate,
     location: "Kenosha Area",
   },
   {
     label: "Driveway Spot Removal",
-    full: drivewaySpotsUrl,
+    full: drivewaySpots,
     location: "Southeast Wisconsin",
   },
   { label: "Patio Restoration", before: patioBefore, after: patioAfter, location: "Kenosha, WI" },
   { label: "Oil Stain Removal", before: oilBefore, after: oilAfter, location: "Kenosha, WI" },
-  { label: "Window Cleaning", full: windowCleaningUrl, location: "Kenosha Area" },
+  { label: "Window Cleaning", full: windowCleaning, location: "Kenosha Area" },
   { label: "Deck Cleaning", before: deckBefore, after: deckAfter, location: "Kenosha, WI" },
 ];
 
@@ -81,7 +75,7 @@ const OurWork = () => {
             </h1>
             <p className="text-bone-dim text-lg md:text-xl max-w-2xl leading-relaxed">
               Browse before-and-after results from driveways, patios, windows, and
-              more across Kenosha and the surrounding area.
+              more across southeast Wisconsin and northern Illinois.
             </p>
           </motion.div>
         </div>
@@ -106,7 +100,10 @@ const OurWork = () => {
                       <img
                         src={p.full}
                         alt={p.label}
+                        width={1600}
+                        height={1000}
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                       />
                       {p.label !== "Window Cleaning" && (
@@ -121,7 +118,10 @@ const OurWork = () => {
                         <img
                           src={p.before}
                           alt={`${p.label} before`}
+                          width={800}
+                          height={600}
                           loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                         />
                         <span className="absolute top-3 left-3 bg-carbon/80 backdrop-blur-sm text-bone font-mono text-[9px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
@@ -132,7 +132,10 @@ const OurWork = () => {
                         <img
                           src={p.after}
                           alt={`${p.label} after`}
+                          width={800}
+                          height={600}
                           loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                         />
                         <span className="absolute top-3 right-3 bg-leaf text-carbon font-mono font-semibold text-[9px] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
@@ -186,13 +189,13 @@ const OurWork = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
-                href="tel:+12623517796"
+                href="tel:+12625153083"
                 className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
               >
                 <Phone className="w-3.5 h-3.5 text-ember" /> Call
               </a>
               <a
-                href="sms:+12623517796"
+                href="sms:+12625153083"
                 className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-ember" /> Text

@@ -6,7 +6,7 @@ const steps = [
     step: "01",
     title: "Request a quote",
     description:
-      "Fill out our quick form or call/text us. We'll get back to you fast with a free, no-obligation quote.",
+      "Fill out our quick form or call/text us. We'll get back to you with a free, no-obligation quote, usually same day.",
     cta: { label: "Get a Quote", href: "#contact" },
   },
   {

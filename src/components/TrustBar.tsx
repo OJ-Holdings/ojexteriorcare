@@ -3,11 +3,11 @@ const items = [
   "Fully Insured",
   "Same-Day Quotes",
   "Local & Accountable",
+  "House Washing",
   "Driveways",
   "Patios",
   "Windows",
   "Decks",
-  "Gutters",
   "Free Quotes",
 ];
 

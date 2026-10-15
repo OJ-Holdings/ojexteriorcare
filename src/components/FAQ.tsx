@@ -9,7 +9,7 @@ import {
 const faqs = [
   {
     q: "How much does driveway cleaning cost?",
-    a: "Pricing depends on the size and condition of your driveway. Our Basic Refresh starts at $149. Contact us for a free, personalized quote.",
+    a: "Driveway cleaning is $50 per car width, with a $150 minimum per visit. Final price can change based on size, condition, and access. Contact us for a free, exact quote.",
   },
   {
     q: "Can you remove oil stains?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "Do you offer free quotes?",
-    a: "Yes - every quote is 100% free with no obligation. Just fill out our contact form, call, or text us and we'll get back to you quickly.",
+    a: "Yes - every quote is 100% free with no obligation. Just fill out our contact form, call, or text us and we'll get back to you, usually within the hour.",
   },
 ];
 
@@ -55,10 +55,10 @@ const FAQ = () => {
             </h2>
             <p className="text-bone-dim text-sm leading-relaxed max-w-xs">
               Something we didn&rsquo;t cover?{" "}
-              <a href="sms:+12623517796" className="text-ember font-medium hover:underline underline-offset-4">
+              <a href="sms:+12625153083" className="text-ember font-medium hover:underline underline-offset-4">
                 Text us
               </a>{" "}
-. We usually answer within the hour.
+              and we&rsquo;ll answer, usually within the hour.
             </p>
           </motion.div>
 

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, MessageCircle, Heart, Shield, Users, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import foundersImg from "@/assets/founders/founders.jpg";
+import foundersImg from "@/assets/founders/founders.webp";
 
 const values = [
   {
@@ -62,7 +62,7 @@ const About = () => {
             </h1>
             <p className="text-bone-dim text-lg md:text-xl max-w-2xl leading-relaxed">
               We didn&rsquo;t set out to build a corporate empire. We set out to do honest
-              work for honest people and do it better than anyone else in Kenosha.
+              work for honest people and do it better than anyone else in southeast Wisconsin.
             </p>
           </motion.div>
         </div>
@@ -98,8 +98,9 @@ const About = () => {
                 </p>
                 <p>
                   Word spread. Neighbors told neighbors. Today, we&rsquo;re proud to serve
-                  Kenosha, Racine, Zion, and the surrounding communities, but we&rsquo;ve
-                  never lost that local, neighbor-to-neighbor feel.
+                  homeowners across southeast Wisconsin and northern Illinois, from Milwaukee
+                  and Waukesha to Lake County, but we&rsquo;ve never lost that local,
+                  neighbor-to-neighbor feel.
                 </p>
               </div>
             </motion.div>
@@ -114,8 +115,11 @@ const About = () => {
                 <img
                   src={foundersImg}
                   alt="Oscar and Jacob, co-founders of OJ Exterior Care"
+                  width={1440}
+                  height={1920}
                   className="w-full h-full object-cover aspect-[4/3]"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <figcaption className="caption flex items-center justify-between mt-4">
@@ -214,7 +218,7 @@ const About = () => {
                 <span className="accent-serif text-ember-gradient">local crew?</span>
               </h2>
               <p className="text-bone-dim">
-                Free quotes, fast response, and zero pressure. Let&rsquo;s see what we can do for your home.
+                Free quotes, replies usually within the hour, and zero pressure. Let&rsquo;s see what we can do for your home.
               </p>
             </div>
             <div className="relative flex flex-wrap gap-3 shrink-0">
@@ -226,13 +230,13 @@ const About = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
-                href="tel:+12623517796"
+                href="tel:+12625153083"
                 className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
               >
                 <Phone className="w-3.5 h-3.5 text-ember" /> Call
               </a>
               <a
-                href="sms:+12623517796"
+                href="sms:+12625153083"
                 className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-ember" /> Text

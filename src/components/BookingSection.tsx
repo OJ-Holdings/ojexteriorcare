@@ -58,8 +58,8 @@ const BookingSection = () => {
             className="text-center caption mt-6"
           >
             Prefer to call?{" "}
-            <a href="tel:+12623517796" className="text-ember font-semibold hover:underline underline-offset-4">
-              (262) 351-7796
+            <a href="tel:+12625153083" className="text-ember font-semibold hover:underline underline-offset-4">
+              (262) 515-3083
             </a>{" "}
             or{" "}
             <a href="#contact" className="text-ember font-semibold hover:underline underline-offset-4">

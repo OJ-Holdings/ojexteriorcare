@@ -124,7 +124,7 @@ const ContactForm = () => {
                 <span className="accent-serif text-ember">received.</span>
               </h3>
               <p className="text-bone-dim leading-relaxed">
-                We&rsquo;ll get back to you as soon as possible. Thank you for choosing OJ Exterior Care.
+                We&rsquo;ll get back to you, usually within the hour. Thank you for choosing OJ Exterior Care.
               </p>
             </motion.div>
           ) : (
@@ -207,6 +207,7 @@ const ContactForm = () => {
                     className={`${inputClass} cursor-pointer`}
                   >
                     <option value="">Select a service</option>
+                    <option>House Washing</option>
                     <option>Driveway Cleaning</option>
                     <option>Patio Cleaning</option>
                     <option>Sidewalk Cleaning</option>
@@ -214,7 +215,7 @@ const ContactForm = () => {
                     <option>Oil Stain Treatment</option>
                     <option>Rust Stain Treatment</option>
                     <option>Exterior Surface Washing</option>
-                    <option>Gutter Cleaning</option>
+                    <option>Gutters / Roof (ask us)</option>
                     <option>Window Cleaning</option>
                     <option>Multiple Services</option>
                   </select>

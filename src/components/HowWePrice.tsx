@@ -83,13 +83,13 @@ const HowWePrice = () => {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             <a
-              href="tel:+12623517796"
+              href="tel:+12625153083"
               className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
             >
               <Phone className="w-3.5 h-3.5 text-ember" /> Call
             </a>
             <a
-              href="sms:+12623517796"
+              href="sms:+12625153083"
               className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
             >
               <MessageCircle className="w-3.5 h-3.5 text-ember" /> Text

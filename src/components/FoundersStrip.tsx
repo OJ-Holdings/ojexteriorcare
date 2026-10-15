@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import foundersImg from "@/assets/founders/founders.jpg";
+import foundersImg from "@/assets/founders/founders.webp";
 
 const FoundersStrip = () => {
   return (
@@ -23,7 +23,10 @@ const FoundersStrip = () => {
               <img
                 src={foundersImg}
                 alt="Oscar and Jacob, co-founders of OJ Exterior Care"
+                width={1440}
+                height={1920}
                 loading="lazy"
+                decoding="async"
                 className="w-full object-cover object-top aspect-[3/4]"
               />
               <span className="absolute bottom-3 left-3 bg-carbon/80 backdrop-blur-sm text-bone font-mono text-[10px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full">
@@ -46,11 +49,13 @@ const FoundersStrip = () => {
             </h2>
             <p className="text-bone-dim text-lg leading-relaxed mb-4 max-w-lg">
               Two guys from Kenosha who got tired of watching big, faceless companies
-              overpromise and underdeliver. When you hire us, the people who quote
-              your job are the people who show up and do it.
+              overpromise and underdeliver. No job is finished until an owner signs off
+              on it. We take full responsibility for every job we complete, and if
+              anything isn&rsquo;t up to our standard, we come back and fix it free of charge.
             </p>
             <p className="font-serif italic text-bone/80 text-lg mb-8">
-              &ldquo;These are hard working young men,&rdquo; basically every review.
+              We&rsquo;re hungry, ambitious entrepreneurs who turned OJ into an established
+              company in under two years, with 100+ jobs done and a perfect 5.0 on Google.
             </p>
             <a
               href="/about"

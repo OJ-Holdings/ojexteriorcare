@@ -3,9 +3,14 @@ import { ArrowRight, Phone } from "lucide-react";
 
 const services = [
   {
+    name: "House Washing",
+    range: "From $300",
+    factors: ["1 story: from $300", "2 story: from $400", "3 story: from $500"],
+  },
+  {
     name: "Driveway Cleaning",
-    range: "$149–350",
-    factors: ["Single car: $149–$200", "Two-car: $200–$300", "Large/circular: $300–$350"],
+    range: "$50 / car",
+    factors: ["Priced per car width", "$150 minimum per visit", "Oil stains: see treatment below"],
   },
   {
     name: "Patio Cleaning",
@@ -28,14 +33,9 @@ const services = [
     factors: ["Up to 10 windows: $75–$125", "Full home: $150–$250", "Inside + outside available"],
   },
   {
-    name: "Gutter Cleaning",
-    range: "$100–225",
-    factors: ["Single story: $100–$150", "Two story: $150–$225", "Flush & test included"],
-  },
-  {
     name: "Oil Stain Treatment",
     range: "$75–200",
-    factors: ["Add-on to driveway clean", "Standalone: $75–$150", "Severe staining: $150–$200"],
+    factors: ["Add-on to driveway clean: $50–$100", "Standalone: $75–$150", "Severe staining: $150–$200"],
   },
   {
     name: "Rust Stain Removal",
@@ -92,7 +92,7 @@ const Pricing = () => {
             </span>
             <span className="accent-serif text-xl text-ember">Rate card</span>
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone-dim">
-              Summer 2026
+              2026
             </span>
           </div>
 
@@ -127,8 +127,9 @@ const Pricing = () => {
 
           <div className="border-t border-bone/10 px-6 md:px-12 py-4 bg-carbon/40">
             <p className="font-mono text-[11px] text-bone-dim tracking-wide">
-              * Final price depends on surface size, condition, and access.{" "}
-              <span className="text-bone font-medium">We never charge more than quoted.</span>
+              Prices are estimates and can change based on size, condition, and access. $150
+              minimum per visit. Reach out for an exact quote, it&rsquo;s quick and easy.{" "}
+              <span className="text-bone font-medium">We never charge more than we quote.</span>
             </p>
           </div>
         </motion.div>
@@ -181,7 +182,7 @@ const Pricing = () => {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             <a
-              href="tel:+12623517796"
+              href="tel:+12625153083"
               className="glass text-bone px-6 py-3.5 rounded-full font-display font-medium text-sm flex items-center gap-2 hover:border-bone/25 transition-colors duration-200"
             >
               <Phone className="w-3.5 h-3.5 text-ember" /> Call

@@ -22,12 +22,12 @@ const PrivacyPolicy = () => {
           <h1 className="font-display font-semibold text-4xl md:text-6xl leading-[1.02] tracking-[-0.03em] text-bone mb-4">
             Privacy Policy
           </h1>
-          <p className="text-bone-dim text-sm mb-12">Last updated: August 2026</p>
+          <p className="text-bone-dim text-sm mb-12">Last updated: October 2026</p>
 
           <p className={p}>
             OJ Holdings LLC, doing business as OJ Exterior Care ("OJ Exterior Care," "we," "us," or
             "our"), operates ojexteriorcare.com (the "Site") and provides residential exterior
-            cleaning services in and around Kenosha, Wisconsin. This Privacy Policy explains what
+            cleaning services in southeast Wisconsin and northern Illinois. This Privacy Policy explains what
             information we collect, how we use it, and the choices you have.
           </p>
 
@@ -128,8 +128,8 @@ const PrivacyPolicy = () => {
               ojexteriorcare@gmail.com
             </a>{" "}
             or{" "}
-            <a href="tel:+12623517796" className="text-ember hover:text-ember-bright">
-              (262) 351-7796
+            <a href="tel:+12625153083" className="text-ember hover:text-ember-bright">
+              (262) 515-3083
             </a>
             .
           </p>

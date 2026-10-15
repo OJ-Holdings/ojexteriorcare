@@ -31,7 +31,7 @@ const FloatingCTA = () => {
               Get a Free Quote <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="tel:+12623517796"
+              href="tel:+12625153083"
               className="w-[52px] h-[52px] shrink-0 glass rounded-full flex items-center justify-center"
               aria-label="Call OJ Exterior Care"
             >

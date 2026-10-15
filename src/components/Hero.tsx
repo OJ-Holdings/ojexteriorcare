@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Phone, Star } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.webp";
 
 // ─── Counter hook ────────────────────────────────────────────────
 function useCountUp(target: number, duration = 1500, active = false) {
@@ -28,8 +28,9 @@ function useCountUp(target: number, duration = 1500, active = false) {
   return val;
 }
 
-const Stat = ({ value, suffix, label, active, delay = 0 }: {
-  value: number; suffix: string; label: string; active: boolean; delay?: number;
+// Pass `text` instead of `value` for a word stat that shouldn't count up
+const Stat = ({ value = 0, suffix = "", text, label, active, delay = 0 }: {
+  value?: number; suffix?: string; text?: string; label: string; active: boolean; delay?: number;
 }) => {
   const [started, setStarted] = useState(false);
   useEffect(() => {
@@ -37,13 +38,19 @@ const Stat = ({ value, suffix, label, active, delay = 0 }: {
     const t = setTimeout(() => setStarted(true), delay);
     return () => clearTimeout(t);
   }, [active, delay]);
-  const count = useCountUp(value, 1400, started);
+  const count = useCountUp(value, 1400, started && text === undefined);
 
+  // Subgrid rows keep values bottom-aligned and labels top-aligned across the row,
+  // even when a word stat like "Fully insured" wraps to two lines
   return (
-    <div className="flex flex-col gap-1.5">
-      <div className="font-display font-semibold text-3xl md:text-4xl text-bone leading-none tabular-nums tracking-tight">
-        {count}
-        <span className="text-ember">{suffix}</span>
+    <div className="grid grid-rows-subgrid row-span-2 gap-y-1.5">
+      <div className="self-end font-display font-semibold text-3xl md:text-4xl text-bone leading-none tabular-nums tracking-tight">
+        {text ?? (
+          <>
+            {count}
+            <span className="text-ember">{suffix}</span>
+          </>
+        )}
       </div>
       <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone-dim">{label}</div>
     </div>
@@ -106,9 +113,11 @@ const Hero = () => {
         <img
           src={heroBg}
           alt=""
-          width={1920}
-          height={1080}
+          width={1728}
+          height={972}
           loading="eager"
+          // React 18 doesn't know fetchPriority yet; the lowercase attribute passes straight through
+          {...{ fetchpriority: "high" }}
           className="w-full h-full object-cover animate-ken-burns will-change-transform"
         />
         <div className="absolute inset-0 cine-overlay" />
@@ -138,7 +147,7 @@ const Hero = () => {
             ))}
           </span>
           <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-bone/90">
-            5.0 on Google · Kenosha, WI
+            5.0 on Google · Southeast WI
           </span>
         </motion.a>
 
@@ -175,8 +184,8 @@ const Hero = () => {
           transition={{ duration: 0.55, delay: 0.65 }}
           className="text-bone/65 text-lg md:text-xl leading-relaxed max-w-xl mb-9"
         >
-          Driveways, patios, windows and more, cleaned with pro-grade equipment
-          by a crew that actually shows up. <span className="text-bone">Kenosha&rsquo;s most trusted exterior team.</span>
+          Driveways, house washing, windows and more, cleaned with pro-grade equipment
+          by a crew that actually shows up. <span className="text-bone">Southeast Wisconsin&rsquo;s trusted exterior team.</span>
         </motion.p>
 
         <motion.div
@@ -197,11 +206,11 @@ const Hero = () => {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
           </a>
           <a
-            href="tel:+12623517796"
+            href="tel:+12625153083"
             className="glass text-bone px-8 py-4 rounded-full font-display font-medium text-base flex items-center gap-2.5 hover:border-bone/25 hover:bg-bone/10 transition-all duration-200"
           >
             <Phone className="w-4 h-4 text-ember" />
-            (262) 351-7796
+            (262) 515-3083
           </a>
         </motion.div>
 
@@ -212,10 +221,10 @@ const Hero = () => {
           transition={{ duration: 0.55, delay: 1 }}
           className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6 max-w-2xl"
         >
-          <Stat value={75} suffix="+" label="Jobs Completed" active={statsActive} delay={0} />
-          <Stat value={5} suffix=".0" label="Google Rating" active={statsActive} delay={150} />
-          <Stat value={100} suffix="%" label="5-Star Reviews" active={statsActive} delay={300} />
-          <Stat value={24} suffix="hr" label="Quote Turnaround" active={statsActive} delay={450} />
+          <Stat value={100} suffix="+" label="Jobs completed" active={statsActive} delay={0} />
+          <Stat value={5} suffix=".0" label="Google rating" active={statsActive} delay={150} />
+          <Stat text="Fully insured" label="Every job, every time" active={statsActive} delay={300} />
+          <Stat value={1} suffix="hr" label="Typical response time" active={statsActive} delay={450} />
         </motion.div>
       </div>
 
