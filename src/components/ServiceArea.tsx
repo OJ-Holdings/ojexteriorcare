@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
+import { sectionNum } from "@/config/season";
+import { useSeasonPhase } from "@/hooks/use-season-phase";
 
 const areas = [
   {
@@ -35,6 +37,7 @@ const areas = [
 ];
 
 const ServiceArea = () => {
+  const phase = useSeasonPhase();
   return (
     <section className="py-24 md:py-32 bg-carbon-2/50">
       <div className="container">
@@ -48,7 +51,7 @@ const ServiceArea = () => {
             className="lg:col-span-5"
           >
             <div className="flex items-center gap-4 mb-6">
-              <span className="font-mono text-[11px] text-ember">06</span>
+              <span className="font-mono text-[11px] text-ember">{sectionNum(6, phase)}</span>
               <span className="eyebrow eyebrow-dim">Coverage</span>
             </div>
             <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.06] tracking-[-0.03em] text-bone mb-5">

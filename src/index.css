@@ -22,6 +22,12 @@
     --ember-bright: 26 92% 62%;
     --leaf: 95 48% 50%;
 
+    /* Winter (only used by seasonal elements: banner, frost, snowflakes, tags) */
+    --ice: 201.1 62.7% 88.4%;        /* #CFE7F4 */
+    --ice-deep: 201.5 56.6% 72%;     /* #8FC3E0 */
+    --frost: 203.1 61.9% 95.9%;      /* #EEF6FB */
+    --frost-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.055' numOctaves='4' seed='4' stitchTiles='stitch' result='n'/%3E%3CfeColorMatrix in='n' type='matrix' values='0 0 0 0 0.93 0 0 0 0 0.965 0 0 0 0 0.985 2.6 0 0 0 -0.95' result='p'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='2' seed='9' stitchTiles='stitch' result='g'/%3E%3CfeColorMatrix in='g' type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4.5 0 0 0 -1.85' result='c'/%3E%3CfeComposite in='c' in2='p' operator='in' result='cp'/%3E%3CfeComponentTransfer in='p' result='ph'%3E%3CfeFuncA type='linear' slope='0.6'/%3E%3C/feComponentTransfer%3E%3CfeMerge%3E%3CfeMergeNode in='ph'/%3E%3CfeMergeNode in='cp'/%3E%3C/feMerge%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+
     /* shadcn tokens */
     --background: 240 6% 4%;
     --foreground: 30 20% 94%;
@@ -151,6 +157,16 @@
 @keyframes fade-in-up {
   0%   { opacity: 0; transform: translateY(24px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes frost-form {
+  0%   { opacity: 0; transform: scale(1.14); }
+  100% { opacity: 0.85; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Frost shows already formed */
+  .hero-frost { animation: none !important; opacity: 0.85 !important; transform: none !important; }
 }
 
 @keyframes shine-sweep {
@@ -311,6 +327,57 @@
   }
   .btn-shine:hover::before {
     animation: shine-sweep 0.6s ease forwards;
+  }
+
+  /* ─── Winter (seasonal, see src/config/season.ts) ───────────── */
+  /* Frost texture: inline SVG noise, no image download. Patchy frost with brighter
+     crystal veins inside it. Rasterized once as a tile, then just composited. */
+  .frost-texture {
+    background-image: var(--frost-texture);
+    background-size: 300px 300px;
+  }
+
+  /* Hero frost: creeps in from the edges once (transform + opacity only, no repaint
+     loop), then sits still. Strongest in the corners, clear over the content. */
+  .hero-frost {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse farthest-corner at 36% 58%, transparent 58%, rgba(0, 0, 0, 0.45) 82%, #000 100%);
+    mask-image: radial-gradient(ellipse farthest-corner at 36% 58%, transparent 58%, rgba(0, 0, 0, 0.45) 82%, #000 100%);
+    opacity: 0;
+    transform: scale(1.14);
+    animation: frost-form 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  }
+
+  /* Cold-morning grade on the hero photo: a touch cooler and less saturated */
+  .hero-cold {
+    filter: saturate(0.7) brightness(1.02) contrast(1.03);
+  }
+  /* Cool cast over the photo (multiply with deep ice pulls the warm channels down) */
+  .hero-chill {
+    background: hsl(var(--ice-deep) / 0.24);
+    mix-blend-mode: multiply;
+  }
+
+  /* Light frost edge for winter cards */
+  .frost-edge {
+    position: relative;
+    isolation: isolate;
+    border-color: hsl(var(--ice) / 0.22);
+  }
+  .frost-edge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.3;
+    background-image: var(--frost-texture);
+    background-size: 260px 260px;
+    -webkit-mask-image: radial-gradient(ellipse farthest-corner at 50% 50%, transparent 68%, rgba(0, 0, 0, 0.5) 88%, #000 100%);
+    mask-image: radial-gradient(ellipse farthest-corner at 50% 50%, transparent 68%, rgba(0, 0, 0, 0.5) 88%, #000 100%);
   }
 
   /* Gradient text */

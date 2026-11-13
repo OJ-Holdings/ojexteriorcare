@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { sectionNum } from "@/config/season";
+import { useSeasonPhase } from "@/hooks/use-season-phase";
 
 const steps = [
   {
@@ -26,6 +28,7 @@ const steps = [
 ];
 
 const Process = () => {
+  const phase = useSeasonPhase();
   return (
     <section className="py-24 md:py-36 relative overflow-hidden bg-carbon-2/50 grain">
       {/* Ambient glow */}
@@ -44,7 +47,7 @@ const Process = () => {
         >
           <div className="md:col-span-7">
             <div className="flex items-center gap-4 mb-6">
-              <span className="font-mono text-[11px] text-ember">05</span>
+              <span className="font-mono text-[11px] text-ember">{sectionNum(5, phase)}</span>
               <span className="eyebrow eyebrow-dim">How It Works</span>
             </div>
             <h2 className="font-display font-semibold text-4xl md:text-6xl leading-[1.02] tracking-[-0.03em] text-bone">

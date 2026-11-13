@@ -5,6 +5,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { sectionNum, winterFaqs } from "@/config/season";
+import { useSeasonPhase } from "@/hooks/use-season-phase";
 
 const faqs = [
   {
@@ -34,6 +36,8 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  const phase = useSeasonPhase();
+  const items = [...winterFaqs(phase), ...faqs];
   return (
     <section id="faq" className="py-24 md:py-32">
       <div className="container">
@@ -46,7 +50,7 @@ const FAQ = () => {
             className="lg:col-span-4"
           >
             <div className="flex items-center gap-4 mb-6">
-              <span className="font-mono text-[11px] text-ember">07</span>
+              <span className="font-mono text-[11px] text-ember">{sectionNum(7, phase)}</span>
               <span className="eyebrow eyebrow-dim">FAQ</span>
             </div>
             <h2 className="font-display font-semibold text-4xl md:text-5xl leading-[1.06] tracking-[-0.03em] text-bone mb-5">
@@ -70,7 +74,7 @@ const FAQ = () => {
             className="lg:col-span-8"
           >
             <Accordion type="single" collapsible className="border-t border-bone/10">
-              {faqs.map((faq, i) => (
+              {items.map((faq, i) => (
                 <AccordionItem
                   key={i}
                   value={`faq-${i}`}

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, Snowflake } from "lucide-react";
+import { isWinterPhase } from "@/config/season";
+import { useSeasonPhase } from "@/hooks/use-season-phase";
 
 const services = [
   {
@@ -45,6 +47,8 @@ const services = [
 ];
 
 const Pricing = () => {
+  const winter = isWinterPhase(useSeasonPhase());
+
   return (
     <section id="pricing" className="py-24 md:py-36 relative overflow-hidden">
       {/* Ambient glow */}
@@ -131,6 +135,12 @@ const Pricing = () => {
               minimum per visit. Reach out for an exact quote, it&rsquo;s quick and easy.{" "}
               <span className="text-bone font-medium">We never charge more than we quote.</span>
             </p>
+            {winter && (
+              <p className="mt-2 flex items-start gap-2 font-mono text-[11px] text-ice tracking-wide">
+                <Snowflake aria-hidden className="w-3 h-3 shrink-0 mt-[0.2em]" />
+                Spring 2027 dates booked by Feb 28 get 10% off these rates.
+              </p>
+            )}
           </div>
         </motion.div>
 

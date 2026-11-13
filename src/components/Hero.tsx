@@ -2,6 +2,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Phone, Star } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import heroBg from "@/assets/hero-bg.webp";
+import { isWinterPhase } from "@/config/season";
+import { useSeasonPhase } from "@/hooks/use-season-phase";
 
 // ─── Counter hook ────────────────────────────────────────────────
 function useCountUp(target: number, duration = 1500, active = false) {
@@ -77,6 +79,7 @@ const Hero = () => {
   const [statsActive, setStatsActive] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLAnchorElement>(null);
+  const winter = isWinterPhase(useSeasonPhase());
 
   // Magnetic CTA
   const handleCtaMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -118,8 +121,9 @@ const Hero = () => {
           loading="eager"
           // React 18 doesn't know fetchPriority yet; the lowercase attribute passes straight through
           {...{ fetchpriority: "high" }}
-          className="w-full h-full object-cover animate-ken-burns will-change-transform"
+          className={`w-full h-full object-cover animate-ken-burns will-change-transform${winter ? " hero-cold" : ""}`}
         />
+        {winter && <div aria-hidden className="absolute inset-0 hero-chill" />}
         <div className="absolute inset-0 cine-overlay" />
         {/* Ember ambient glow */}
         <div
@@ -128,6 +132,9 @@ const Hero = () => {
           style={{ background: "radial-gradient(circle, hsl(var(--ember) / 0.16) 0%, transparent 65%)", filter: "blur(50px)" }}
         />
       </motion.div>
+
+      {/* ── Winter frost on the edges (static, outside the parallax layer) ── */}
+      {winter && <div aria-hidden className="hero-frost frost-texture" />}
 
       {/* ── Content ── */}
       <div className="container relative z-10 flex-1 flex flex-col justify-center pt-40 pb-10 md:pt-44">

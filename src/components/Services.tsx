@@ -1,6 +1,8 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useRef, useState, useCallback } from "react";
+import { serviceTag, type ServiceKind } from "@/config/season";
+import { useSeasonPhase } from "@/hooks/use-season-phase";
 
 import sidingAfter from "@/assets/work/siding-after.webp";
 import drivewayAfter from "@/assets/work/driveway-after.webp";
@@ -10,25 +12,27 @@ import deckAfter from "@/assets/work/deck-after.webp";
 import oilAfter from "@/assets/work/oil-after.webp";
 
 const services = [
-  { title: "House Washing", description: "Soft wash for siding, trim, and soffits. Lifts dirt, algae, and mildew without blasting your home.", href: "#contact", img: sidingAfter },
-  { title: "Driveway Cleaning", description: "Remove years of grime, oil stains, and buildup. Restore curb appeal in hours.", href: "/services/driveway-pressure-washing", img: drivewayAfter },
-  { title: "Patio Cleaning", description: "Deep clean that removes dirt, algae, and discoloration from any surface.", href: "/services/patio-cleaning", img: patioAfter },
-  { title: "Sidewalk Cleaning", description: "Clean, safe sidewalks that look fresh and well-maintained year-round.", href: "#contact", img: sidewalkAfter },
-  { title: "Deck Cleaning", description: "Gentle yet thorough cleaning for wood, composite, and concrete decks.", href: "#contact", img: deckAfter },
-  { title: "Oil Stain Treatment", description: "Specialized treatment to lift and remove stubborn oil stains from concrete.", href: "#contact", img: oilAfter },
-  { title: "Rust Stain Treatment", description: "Expert rust removal from concrete, pavers, and stone surfaces.", href: "#contact", img: oilAfter },
-  { title: "Exterior Surface Washing", description: "Comprehensive cleaning for walls, steps, retaining walls, and more.", href: "#contact", img: patioAfter },
-  { title: "Window Cleaning", description: "Crystal-clear, streak-free windows inside and out. Let the light in.", href: "/services/window-cleaning", img: sidewalkAfter },
+  { title: "House Washing", description: "Soft wash for siding, trim, and soffits. Lifts dirt, algae, and mildew without blasting your home.", href: "#contact", img: sidingAfter, kind: "washer" as ServiceKind },
+  { title: "Driveway Cleaning", description: "Remove years of grime, oil stains, and buildup. Restore curb appeal in hours.", href: "/services/driveway-pressure-washing", img: drivewayAfter, kind: "washer" as ServiceKind },
+  { title: "Patio Cleaning", description: "Deep clean that removes dirt, algae, and discoloration from any surface.", href: "/services/patio-cleaning", img: patioAfter, kind: "washer" as ServiceKind },
+  { title: "Sidewalk Cleaning", description: "Clean, safe sidewalks that look fresh and well-maintained year-round.", href: "#contact", img: sidewalkAfter, kind: "washer" as ServiceKind },
+  { title: "Deck Cleaning", description: "Gentle yet thorough cleaning for wood, composite, and concrete decks.", href: "#contact", img: deckAfter, kind: "washer" as ServiceKind },
+  { title: "Oil Stain Treatment", description: "Specialized treatment to lift and remove stubborn oil stains from concrete.", href: "#contact", img: oilAfter, kind: "washer" as ServiceKind },
+  { title: "Rust Stain Treatment", description: "Expert rust removal from concrete, pavers, and stone surfaces.", href: "#contact", img: oilAfter, kind: "washer" as ServiceKind },
+  { title: "Exterior Surface Washing", description: "Comprehensive cleaning for walls, steps, retaining walls, and more.", href: "#contact", img: patioAfter, kind: "washer" as ServiceKind },
+  { title: "Window Cleaning", description: "Crystal-clear, streak-free windows inside and out. Let the light in.", href: "/services/window-cleaning", img: sidewalkAfter, kind: "windows" as ServiceKind },
 ];
 
 const ServiceRow = ({
   service,
   index,
+  tag,
   onEnter,
   onLeave,
 }: {
   service: typeof services[0];
   index: number;
+  tag: string | null;
   onEnter: (img: string) => void;
   onLeave: () => void;
 }) => {
@@ -48,9 +52,20 @@ const ServiceRow = ({
       <span className="font-mono text-[11px] text-bone-dim group-hover:text-ember transition-colors duration-300 tabular-nums">
         {String(index + 1).padStart(2, "0")}
       </span>
-      <h3 className="font-display font-semibold text-2xl md:text-[1.9rem] leading-tight tracking-[-0.02em] text-bone group-hover:translate-x-1.5 transition-transform duration-300">
-        {service.title}
-      </h3>
+      {tag ? (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 min-w-0">
+          <h3 className="font-display font-semibold text-2xl md:text-[1.9rem] leading-tight tracking-[-0.02em] text-bone group-hover:translate-x-1.5 transition-transform duration-300">
+            {service.title}
+          </h3>
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ice border border-ice/35 rounded-full px-2.5 py-0.5 whitespace-nowrap">
+            {tag}
+          </span>
+        </div>
+      ) : (
+        <h3 className="font-display font-semibold text-2xl md:text-[1.9rem] leading-tight tracking-[-0.02em] text-bone group-hover:translate-x-1.5 transition-transform duration-300">
+          {service.title}
+        </h3>
+      )}
       <p className="hidden md:block text-sm text-bone-dim leading-relaxed max-w-sm">
         {service.description}
       </p>
@@ -68,6 +83,7 @@ const ServiceRow = ({
 
 const Services = () => {
   const [previewImg, setPreviewImg] = useState<string | null>(null);
+  const phase = useSeasonPhase();
   const listRef = useRef<HTMLDivElement>(null);
 
   // Cursor-following preview (desktop only)
@@ -146,6 +162,7 @@ const Services = () => {
               key={service.title}
               service={service}
               index={i}
+              tag={serviceTag(phase, service.kind)}
               onEnter={(img) => setPreviewImg(img)}
               onLeave={() => setPreviewImg(null)}
             />

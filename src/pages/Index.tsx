@@ -13,8 +13,15 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import PromoBanner from "@/components/PromoBanner";
+import SpringLockIn from "@/components/winter/SpringLockIn";
+import Snowfall from "@/components/winter/Snowfall";
+import { isWinterPhase, sectionNum } from "@/config/season";
+import { useSeasonPhase } from "@/hooks/use-season-phase";
 
 const Index = () => {
+  const phase = useSeasonPhase();
+  const winter = isWinterPhase(phase);
+
   return (
     <div className="min-h-screen bg-background">
       <div className="fixed top-0 inset-x-0 z-50">
@@ -28,12 +35,14 @@ const Index = () => {
       <FoundersStrip />
       <Testimonials />
       <Pricing />
+      {winter && <SpringLockIn />}
       <Process />
       <ServiceArea />
       <FAQ />
-      <ContactForm />
+      <ContactForm sectionNumber={sectionNum(8, phase)} />
       <Footer />
       <FloatingCTA />
+      {winter && <Snowfall />}
     </div>
   );
 };

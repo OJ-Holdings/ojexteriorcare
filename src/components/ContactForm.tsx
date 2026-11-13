@@ -1,15 +1,20 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Loader2, CheckCircle2, ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Loader2, CheckCircle2, ArrowRight, Snowflake } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { LEAD_PREFIX, SPRING_LOCKIN_EVENT, WASHER_SERVICES, type Timing } from "@/config/season";
+import { useSeasonPhase } from "@/hooks/use-season-phase";
 
 const inputClass =
   "w-full bg-carbon border border-bone/15 rounded-xl px-4 py-3.5 text-base text-bone placeholder:text-bone-dim/60 focus:outline-none focus:border-ember/60 focus:ring-2 focus:ring-ember/20 transition-all duration-200";
 
 const labelClass = "font-mono text-[10px] uppercase tracking-[0.2em] text-bone-dim mb-2 block";
 
-const ContactForm = () => {
+const ContactForm = ({ sectionNumber = "08" }: { sectionNumber?: string }) => {
+  const phase = useSeasonPhase();
+  const [timing, setTiming] = useState<Timing>("");
+  const [springLead, setSpringLead] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [smsConsent, setSmsConsent] = useState(false);
@@ -22,8 +27,30 @@ const ContactForm = () => {
     description: "",
   });
 
+  const isWasher = WASHER_SERVICES.includes(formData.service_needed);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    // Last call: pressure washing can only be booked for spring
+    if (phase === "lastcall" && e.target.name === "service_needed" && WASHER_SERVICES.includes(e.target.value)) {
+      setTiming("spring");
+    }
+  };
+
+  // "Lock in my spring spot" in the spring section picks the spring option here
+  useEffect(() => {
+    if (phase !== "lastcall") return;
+    const pickSpring = () => setTiming("spring");
+    window.addEventListener(SPRING_LOCKIN_EVENT, pickSpring);
+    return () => window.removeEventListener(SPRING_LOCKIN_EVENT, pickSpring);
+  }, [phase]);
+
+  // Seasonal tag goes in front of the details so it shows in the lead row and the
+  // notification email without any schema change. Off phase: no tag, same as before.
+  const leadTiming = (): Timing => {
+    if (phase === "winter") return "spring";
+    if (phase === "lastcall") return isWasher ? "spring" : timing;
+    return "";
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,6 +59,10 @@ const ContactForm = () => {
 
     try {
       const id = crypto.randomUUID();
+      const lt = leadTiming();
+      const prefix = lt ? LEAD_PREFIX[lt] : "";
+      const details = formData.description.trim();
+      const description = prefix ? (details ? `${prefix} ${details}` : prefix) : formData.description;
       const { error } = await supabase.from("quote_requests").insert({
         id,
         name: formData.name,
@@ -39,7 +70,7 @@ const ContactForm = () => {
         email: formData.email || null,
         address: formData.address || null,
         service_needed: formData.service_needed || null,
-        description: formData.description || null,
+        description: description || null,
         sms_consent: smsConsent,
       });
 
@@ -58,7 +89,7 @@ const ContactForm = () => {
               email: formData.email || "Not provided",
               address: formData.address || "Not provided",
               service: formData.service_needed || "Not specified",
-              description: formData.description || "No details provided",
+              description: description || "No details provided",
               smsConsent: smsConsent ? "Yes" : "No",
             },
           },
@@ -69,6 +100,7 @@ const ContactForm = () => {
         console.error("Email invoke exception:", e);
       }
 
+      setSpringLead(lt === "spring");
       setSubmitted(true);
     } catch (error: any) {
       console.error("Error submitting quote request:", error);
@@ -97,7 +129,7 @@ const ContactForm = () => {
             className="text-center mb-12 md:mb-16"
           >
             <div className="flex items-center justify-center gap-4 mb-6">
-              <span className="font-mono text-[11px] text-ember">08</span>
+              <span className="font-mono text-[11px] text-ember">{sectionNumber}</span>
               <span className="eyebrow eyebrow-dim">Contact</span>
             </div>
             <h2 className="font-display font-semibold text-4xl md:text-6xl leading-[1.02] tracking-[-0.03em] text-bone mb-5">
@@ -124,7 +156,9 @@ const ContactForm = () => {
                 <span className="accent-serif text-ember">received.</span>
               </h3>
               <p className="text-bone-dim leading-relaxed">
-                We&rsquo;ll get back to you, usually within the hour. Thank you for choosing OJ Exterior Care.
+                {springLead
+                  ? "We’ll get back to you, usually within the hour, to put a real spring 2027 date on the calendar. Thank you for choosing OJ Exterior Care."
+                  : "We’ll get back to you, usually within the hour. Thank you for choosing OJ Exterior Care."}
               </p>
             </motion.div>
           ) : (
@@ -221,6 +255,30 @@ const ContactForm = () => {
                   </select>
                 </div>
 
+                {phase === "lastcall" && (
+                  <div>
+                    <label htmlFor="cf-timing" className={labelClass}>When do you want it done?</label>
+                    <select
+                      id="cf-timing"
+                      name="timing"
+                      value={isWasher ? "spring" : timing}
+                      onChange={(e) => setTiming(e.target.value as Timing)}
+                      aria-describedby={isWasher ? "cf-timing-note" : undefined}
+                      className={`${inputClass} cursor-pointer`}
+                    >
+                      <option value="">Select timing</option>
+                      <option value="windows" disabled={isWasher}>Before Nov 22 (window cleaning only)</option>
+                      <option value="spring">Spring 2027 (10% off)</option>
+                    </select>
+                    {isWasher && (
+                      <p id="cf-timing-note" className="mt-2.5 flex items-start gap-2 text-xs text-ice leading-relaxed">
+                        <Snowflake aria-hidden className="w-3 h-3 shrink-0 mt-0.5" />
+                        Pressure washing is done for 2026. We&rsquo;ll lock in a spring date, 10% off.
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 <div>
                   <label htmlFor="cf-desc" className={labelClass}>Tell us about your project</label>
                   <textarea
@@ -248,6 +306,13 @@ const ContactForm = () => {
                     out.
                   </span>
                 </label>
+
+                {phase === "winter" && (
+                  <p className="flex items-start justify-center gap-2 text-sm text-ice leading-relaxed text-center">
+                    <Snowflake aria-hidden className="w-3.5 h-3.5 shrink-0 mt-[0.2em]" />
+                    All bookings are for spring 2027. 10% off when you book by Feb 28.
+                  </p>
+                )}
 
                 <button
                   type="submit"

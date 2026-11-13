@@ -35,6 +35,11 @@ export default {
           bright: "hsl(var(--ember-bright))",
         },
         leaf: "hsl(var(--leaf))",
+        ice: {
+          DEFAULT: "hsl(var(--ice))",
+          deep: "hsl(var(--ice-deep))",
+        },
+        frost: "hsl(var(--frost))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
