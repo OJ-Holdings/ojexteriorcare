@@ -22,8 +22,9 @@ const areas = [
 
 const socials = [
   { label: "Instagram", href: "https://www.instagram.com/ojexteriorcare/" },
-  { label: "Facebook", href: "https://www.facebook.com/groups/692584774780615/user/61579825178604/" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61579825178604" },
   { label: "TikTok", href: "https://www.tiktok.com/@oj.exterior.care" },
+  { label: "YouTube", href: "https://www.youtube.com/@ojexteriorcare" },
 ];
 
 const Footer = () => {
